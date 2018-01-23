@@ -1,0 +1,27 @@
+                <h1>Development Tools</h1>
+
+    Git - or DVCS/version control
+    Node - Which allows for Javascript outside of the browser and npm which gives you more tools.
+    Gulp - automating build tool that aids in development tasks.
+    Babel - transcompiler that converts ES6 code to portable ES5 code
+    ESLint -  A linter that helps point out common mistakes.
+
+
+    in the .gitignore file put
+
+    # npm debugging logs
+      npm-debug.log*
+
+    # project dependencies
+      node_modules
+
+    # OSX folder attributes
+      .DS_Store
+
+    # temporary files
+      *.temporary*~
+
+
+    Project needs README.md file as well.(Which we have)
+
+                  <h1>Package Managment<h1>
