@@ -40,7 +40,7 @@
        tagging dependencies by attaching the --save or --saveDev flag to the end of dependency you are installing.
 
        ex. npm install --save underscore
-           npm instal --saveDev underscore
+           npm instal --save-dev underscore
 
       dev dependencies are packages your app can run without, but help with the building a project.
 
@@ -49,4 +49,12 @@
 
       2 popular build tools for Javascript are Gulp and Grunt
 
-      
+      // Installs gulp build tool globally
+      npm install -g gulp
+
+      Transcompilers - babel and Traceur
+
+      Babel used to be  just es6 to es5, but now offers more Including ES6, React, and ES7.
+
+      // Installs ES6
+      npm install --save-dev babel-preset-es2015 
