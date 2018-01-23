@@ -1,0 +1,20 @@
+Introduction to Big O Notation 
+
+Objectives
+
+	- Describe Big-O-Notation 
+	- Evaluate the runtime of algorithms using Big-O-Notation 
+	- Compare fastest to slowest asymptotic complexities of common runtimes (e.g. O(1), O(log(n)), O(n), O(nlog(n)), O(n2), etc). 
+	- Explain the difference between time complexity and space complexity 
+
+
+(Things to Know about Notation) 
+
+- Constants are ignored
+- Smaller components are ignored 
+	
+	O(500 * n) --> O(n)
+	O(99999999999) --> O(1)
+	O(10*n2 + 5n + 20) --> O(n2)
+	O(n * n) --> O(n2)
+	O(n*log(n) + 30000 * n) --> O(n * log(n))
