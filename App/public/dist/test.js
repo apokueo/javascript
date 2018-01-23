@@ -1,14 +1,14 @@
 'use strict';
 //es6 feature: block-scoped "let" declaration
 
-var sentence = [{ subject: "JavaScript", verb: "is", object: "great" }, { subject: "Elephants", verb: "are", object: "large" }];
+var sentences = [{ subject: "JavaScript", verb: "is", object: "great" }, { subject: "Elephants", verb: "are", object: "large" }];
 //es6 feature: object destructuring
 function say(_ref) {
   var subject = _ref.subject,
       verb = _ref.verb,
       object = _ref.object;
 
-  console.log("" + subject + verb + object);
+  console.log(subject + " " + verb + " " + object);
 }
 
 //es6 feature: for..of
