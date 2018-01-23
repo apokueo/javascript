@@ -25,3 +25,28 @@
     Project needs README.md file as well.(Which we have)
 
                   <h1>Package Managment<h1>
+
+
+      npm is a Nodes package manager that allows you to add dependencies for setting up a developmental build environment.
+
+      // will get all specified dependencies in json file.
+      npm install -package name-
+
+      // targets a specific version
+      npm install -package name@1.8.0
+
+      // dependencies vs dev dependencies
+
+       tagging dependencies by attaching the --save or --saveDev flag to the end of dependency you are installing.
+
+       ex. npm install --save underscore
+           npm instal --saveDev underscore
+
+      dev dependencies are packages your app can run without, but help with the building a project.
+
+
+      <h1>Build Tools</h1>
+
+      2 popular build tools for Javascript are Gulp and Grunt
+
+      
