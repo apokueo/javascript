@@ -1,0 +1,15 @@
+Javascript Development Tools 
+
+- Git, Node, Gulp, Babel and ESLint 
+
+- Git is a 'version control' tool that helps you manage your projects as it grows, and to collaborate with other developers 
+
+- Node, which allows you to run Javascript outside of the browser (and comes with npm, which gives access to the rest of the tools on this list)
+
+- Gulp, a build tool that automates common development tasks to which Grunt is an alternative 
+
+- Babel, a transcompiler that converts ES6 code to portable ES5 code
+
+- ESLint, a linter that helps you avoid common mistakes and makes you a better programmer 
+
+
