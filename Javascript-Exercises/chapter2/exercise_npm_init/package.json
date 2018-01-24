@@ -1,0 +1,22 @@
+{
+  "name": "npminit",
+  "version": "1.0.0",
+  "description": "Praxis on NPM Initialization ",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Hello, Aeon\" "
+  },
+  "repository": {
+    "type": "git",
+    "url": "javascript"
+  },
+  "keywords": [
+    "npm",
+    "init"
+  ],
+  "author": "larry",
+  "license": "MIT",
+  "dependencies": {
+    "underscore": "^1.8.3"
+  }
+}
