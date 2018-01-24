@@ -32,7 +32,7 @@ module.exports = {
         "camelcase": "error",
         "capitalized-comments": "off",
         "class-methods-use-this": "error",
-        "comma-dangle": "always-multiline",
+        "comma-dangle": "error",
         "comma-spacing": "off",
         "comma-style": [
             "error",
