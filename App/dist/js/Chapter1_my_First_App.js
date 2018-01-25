@@ -34,8 +34,8 @@ $(document).ready(function () {
 //   }
 // }
 
-//Example 2.
-/*var tool = new Tool();
+// Example 2.
+/* var tool = new Tool();
 
 tool.onMouseDown = function(event) {
   var c = Shape.Circle(event.point.x, event.point.y, 20);

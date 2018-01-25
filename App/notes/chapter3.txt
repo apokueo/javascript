@@ -1,0 +1,55 @@
+                            <h1> Chapter 3 : Data </h1>
+
+    all data is represented by 0's and 1's
+
+    data types are the representations of that data and each language can have its own data type.
+
+    objects with the ability to hold data : ( variables, constants, and literals )
+
+    // values can change at any time with vars wit ha simple reassignment.
+
+    ~ variables = 'named value';
+
+    // const however has its initial value set and does not change from that set value.
+
+    ~ const Max_Temp_C = 24;
+
+    the let keyword in the new ES6 allows for the declaration of multiple variables with only using one let command.
+
+    let users, env1 = "Sales", env2 = "Collaboration"
+
+          <h1> Identifier Names </h1>
+
+
+    Variable and Constant (NAMES) are called Identifiers and those names have conventions.
+
+    Identifiers must start with a (letter: [a,b,c], dollarSign: [$], underscore: [_])
+
+    unicode is allowed
+    identifiers cannot be reserved words
+
+
+    ~ Note about casing
+
+      camelCasing = "currentCamel"
+      snake_casing = "snake_in_the_grass"
+
+    ~ Note on identifiers
+
+    should not start with uppercasing
+    except for class identifiers
+
+
+
+
+
+                    <h1> Literals </h1>
+
+
+    literal - providing the value directly in the program.
+
+    let room1 = "conference_room_a"
+
+    /* room1 = "identifier"
+       "conerence_room_a" = string literal
+    */

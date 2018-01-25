@@ -57,4 +57,4 @@
       Babel used to be  just es6 to es5, but now offers more Including ES6, React, and ES7.
 
       // Installs ES6
-      npm install --save-dev babel-preset-es2015 
+      npm install --save-dev babel-preset-es2015
