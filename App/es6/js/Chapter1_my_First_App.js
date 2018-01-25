@@ -1,42 +1,13 @@
 
-$(document).ready(function(event){  
-  'use strict';
-  paper.install(window);
-  paper.setup(document.getElementById('mainCanvas'));
+let currentTemp = 20;
+const message = `the current temp is ${currentTemp}\u00b0C`;
 
-  var c = Shape.Circle(200,200,80);
-  c.fillColor = 'black';
-  var text = new PointText(200, 200);
-  text.justification = 'center';
-  text.fillColor = 'white';
-  text.fontSize = 20;
-  text.content = 'hello world';
+console.log(message);
 
-  paper.view.draw();
+const multiline = "line1\n\Line2";
+//creates code after \n\ on a new line 
+const multiline2 = `line1 
+line2`;
+// backticks behave like one would think. Just printing as the document was typed.
 
-  console.log('Chapter1_my_First_App.js loaded');
-});
- // EXAMPLE 1.
-// var circle;
-// var circle2;
-// var circle3;
-//
-// for(var i=10; i<400; i+=20) {
-//   for(var j=10; j<400; j+=20) {
-//     circle = Shape.Circle(i, j, 5);
-//     circle2 = Shape.Circle(i, j, 2.5);
-//     circle3 = Shape.Circle(i, j, 0.75);
-//     circle.fillColor = 'green';
-//     circle2.fillColor = 'black';
-//     circle3.fillColor = 'white';
-//   }
-// }
-
-// Example 2.
-/* var tool = new Tool();
-
-tool.onMouseDown = function(event) {
-  var c = Shape.Circle(event.point.x, event.point.y, 20);
-  c.fillColor = 'green';
-};
-*/
+console.log(multiline2);

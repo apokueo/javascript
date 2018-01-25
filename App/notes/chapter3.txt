@@ -53,3 +53,107 @@
     /* room1 = "identifier"
        "conerence_room_a" = string literal
     */
+
+
+                  <h1> Primitive Types and Objects </h1>
+
+
+    sixPrimitives = Numbers, String, Boolean, Null, Undefined, Symbol
+
+    //objects can be used to construct custom data types
+    objects = Arrat, Date, RegExp, Map and WeakMap, Set and WeakSet
+
+
+    JavaScript approximates real numbers through a fromat know as IEEE-764 double-precision floating point
+
+    ~ Numerical literals
+
+    literal formats = decimal, binary, octal, hexa-decimal
+    all literal formats get stored as doubles
+
+    (look into these 4 literal )
+
+
+    USEFUL PROPERTIES FOR NUMBER OBJECTS
+
+    const small = Number.EPSILON; //the smallest value that can be added to 1 to get a distinct number larger than 1 apporx. 2.2e-16
+
+    const bigInt = Number.MAX_SAFE_INTIGER; // the largest representable integer
+    const max = Number.MAX_VALUE; // largest represented number
+
+    const min = Number.MIN_VALUE; // smallest    "         "
+    const nInf = Number.NEGATIVE_INFINITY
+
+    const nan = Number.NaN
+    const inf = Number.POSITIVE_INFINITY
+
+    ~ Special Characters
+
+    escaping "\ allows for doesn't "\ to appear with apostrophe
+    or 'he looked quite frankly and said " that doesn\'t make sense " '
+
+    \n for new line
+    \r for carriage return
+    \t for Tab
+    \' for don't
+    \" for 'sam said \"hello\".'
+    \` for accent grave
+    \$ for interpolation
+    \\
+
+
+    string templates introduced in es6 for string concatenation
+
+    let currentTemp = 20;
+
+
+    const message = `the current temp is ${currentTemp}\u00b0C`;
+
+    console.log(message);
+
+    const multiline = "line1\n\Line2";
+    //creates code after \n\ on a new line
+    const multiline2 = `line1
+    line2`;
+    // backticks behave like one would think. Just printing as the document was typed.
+
+    console.log(multiline2);
+
+
+    <h1> Numbers as Strings </h1>
+
+     2 general cases
+      1. const result1 = 3 + "30"; results in "330"
+      2. const result2 = 3 * "30"; results in 90
+
+
+
+      <h1> Symbols </h1>
+
+
+    Symbols are new es6 data type representing unique tokens. Once the symbol is created its unique.
+
+
+    <h1> Objects </h1>
+
+    contents of an object are called properties and properties consist of keys and values.
+
+    obj.size; // undefined
+    obj.color // blue
+
+    can add functions to objects
+
+    sam3.speak = function() {
+      return "Meow";
+    };
+
+    same3.speak;
+
+    WE CAN ALSO FUCKING DELTE PROPERTIES or FUNCTIONS FROM AN OBJECT WITH THE DELETE OPERATOR
+
+    delete sam3.speak
+
+
+    <h1> ARRAYS BISHES </h1>
+
+  
