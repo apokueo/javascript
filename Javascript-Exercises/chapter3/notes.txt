@@ -3,7 +3,7 @@ Chapter 3 Notes
 - Explores datatypes (variables, constants and literals) 
 - These are mechanisms for holding (storing) data. 
 
-* The author posits that this is often an area that is overlooked (namely, vocabulary) when one is learning to program. He then admonishes us to give the most earnest heed to the things that we're to learn at the onset of our careers, for if there is no proper foundation lain, then certainly calamity is certain. 
+* The author posits that this is often an area that is overlooked (namely, vocabulary) when one is learning to program. He then admonishes us to give the most earnest heed to the things that we're to learn at the onset of our careers, for if there is no proper foundation lain, then certaincalamity ensues. 
 
 Variable(s) and Constant(s): 
 
