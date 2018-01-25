@@ -1,0 +1,95 @@
+Chapter 3 Notes 
+
+- Explores datatypes (variables, constants and literals) 
+- These are mechanisms for holding (storing) data. 
+
+* The author posits that this is often an area that is overlooked (namely, vocabulary) when one is learning to program. He then admonishes us to give the most earnest heed to the things that we're to learn at the onset of our careers, for if there is no proper foundation lain, then certainly calamity is certain. 
+
+Variable(s) and Constant(s): 
+
+	- a variable is a named value, and as the name implies, the value can change at any time
+
+	Ex. let currentTempC = 22;
+
+	Note: the 'let' keyword is new to ES6; in the priori the only option was 'var'. 
+
+	- let can only be used 'once' (behaves like a constant) 
+
+	- take time to name your variables meaningfully as they will help to debug in times when your code chokes 
+
+	- Javascript lets you declare a variable without assigning a value however a value is assigned automatically and that is 'undefined'
+
+	- you can declare multiple variables with the 'same' let statement
+
+	Ex. let targetTempC, room1 = "conference_room_a", room2 = "lobby"; 
+
+	# Constants 
+
+	- a constant (new in ES6) also holds a value, but unlike a variable, can't be changed after initialization. 
+
+	Ex. const ROOM_TEMP_C = 21.5, MAX_TEMP_C = 30; 
+
+	- uppercased constants are more a convention and not a ecma script requisite for our code (provides ease of recognizing constants in your code)
+
+	
+
+	# Theory  -> Why choose variables over constants or vice versa? 
+
+	- when you don't need a value to change, its a good practice to prefer constants over variables, thus making it more difficult to accidently change something that should not
+
+
+	# Naming your variables and constants: 
+
+	- variables and constant names are called 'identifiers'
+
+	- must only start with ($) or (_) # dollar signs or underscores 
+
+	- consists of letters, numbers, the dollar sign ($) and underscore 
+
+	- unicode characters are allowed also 
+
+	- identifiers cannot be reserved words  
+
+	- camel case (luciferianDoctrines) or snake case (angelic_communication) 
+
+	
+	Note: identifiers should 'not' start with captial letters unless they are 'classes'. Additionally avoid double-underscores (__) as this is reserved for special/internal vars
+
+
+	# Literals 
+	- the value in a variable passed to another variable 
+
+	
+	
+	# {Primitive types and objects} 
+
+	- in js a 'value' is either a 'primitive' or an 'object' 
+
+	- primitives (types) such as strings and numbers are immutable . 
+
+	Ex. 'the number 5 will always be the number 5' and the string 'alpha' will always be 'alpha'
+
+	- There are 6 primitives in javascript: 
+		1. Number 
+		2. String
+		3. Boolean
+		4. Null
+		5. Undefined
+		6. Symbol 
+
+	Note: immutablity has nothing to do with a value in a variable changing, it has to do with 
+
+	- Objects unlike variables can take on different forms and values
+
+		1. Array
+		2. Date
+		3. RegExp
+		4. Map and WeakMap
+		5. Set and WeakSet
+
+		Note: Primitive types -> number, string and boolean have corresponding object types, Number, String and Boolean (however they don't actually store a value), 
+		      but rather provide functionality that's related to the corresponding primitive. 
+
+	
+
+
