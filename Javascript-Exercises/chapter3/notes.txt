@@ -90,6 +90,55 @@ Variable(s) and Constant(s):
 		Note: Primitive types -> number, string and boolean have corresponding object types, Number, String and Boolean (however they don't actually store a value), 
 		      but rather provide functionality that's related to the corresponding primitive. 
 
+	# null and undefined
+	- undefined is used by javascript to indicate a declared variable is empty, but is open to the programmer to use - best practice is to avoid using it
+	- use null instead 
+
+	Objects 
+	- objects unlike primitives can represent multiple and complex values, and can change over a lifetime
+	- an object is a container 
+	- the literal syntax of objects is ({}) (curly braces)
 	
+	 Ex. const obj = {}; 
+	- name it anything you want but should follow the same rules as with constants and variables 
+	- descriptive names 
+	- the contents of objects are called properties (or members)
+	- properties consist of a name (or key) and value
+	- property names must be strings or symbols and values can be any type: including other objects! 
 
 
+    // Number, String and Boolean Objects 
+    - Number, String and Boolean have corresponding types (Number, String, Boolean) that serve 2 purposes and that is to store special variables such as Number.INFINITY
+	  and to provide functionality in the form of function.
+
+	Ex. const s = 'hello'; 
+	s.toUpperCase(); //hello 
+	
+	- tho the above example behaves as if it were an object, it really isn't, for its a primitive. 
+	
+	How? 
+	- Javascript is creating a temporaray String object (which has a function toUpperCase, among others)
+	- After the function has been called/invoked, Javascript discards the object
+
+	Ex. const s = 'hello'; 
+	s.rating = 3; // no error.. success? 
+	s.rating; // undefined 
+
+	- its immediately discarded which is why it is returning [undefined]
+
+
+	// Arrays 
+	- arrays are special type of object in javascript 
+	- arrays size is not fixed; you can add or remove elements at any time
+	- arrays are not homegenous; each individual element can be of any type
+	- arrays are zero-based i.e. the first element in the array is element 0
+	- array values can be overassigned by assigning a new value 
+
+
+    // Regular Expressions 
+	// Converting to Numbers 
+	- if a string can't be converted, NaN will be returned 
+	- you can use Number() to convert from string to number 
+	- you can also use the parseInt and parseFloat functions 
+		a. with parseInt you can specify a radix which is the base with which you want to parse the number (10 is the default)
+		b. both parseInt and parseFloat will both discard everything past the radix specified
