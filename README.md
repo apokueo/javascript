@@ -1,4 +1,7 @@
+Git - git init (for empty repos)
+
 Gulp (npm install -g gulp)
+
 ESLINT (npm install -g eslint)
 
 setting up basic build files and directory structure
