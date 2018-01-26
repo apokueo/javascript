@@ -2,4 +2,97 @@
 
 Firstly, I'm really digging the "Crown and Anchor" game as a teaching point..lol 
 
+{ Helper Functions } 
 
+
+{ if else Statement }
+
+
+{ do..while Loop }
+- not the same as 'while' loop 
+- used when you know you always want to execute the body of the loop at least once whereas
+  while loops (if false) won't execute at all! 
+
+
+{ for loops }
+- can replace while or do while loops 
+- more flexible 
+- best suited for those times when you need to do things a fixed number of times esp. when you need to know what 
+  step you are on 
+- consists of 3 parts: Initializer (roll = 0 ), condition (roll < 3), final expression (roll++)
+
+  Ex. const hand = []; 
+      for (let roll = 0; roll < 3; roll++ ) {
+          hand.push(randFace()); 
+      }
+
+
+ { if statements } 
+
+ let winnings = 0; 
+
+ for (let die = 0; die < hand.length; die++) {
+     let face = hand[die]; 
+     if(bets[face] > 0) winnings = winnings + bets[face];
+ }
+ funds = funds + winnings; 
+
+ { Control Flow Exceptions }
+
+ - broken into 2 subcategories
+    1. conditional (or branching )
+    2. loop control 
+
+ - Conditional Flow Control is (if and if.. else ) and switch (represents fork in the road)
+ - Loop Flow Control (while, do.. while and for loops ) repeat their bodies until a condition is met
+ - There are 4 statements that can alter the normal processing of flow control 
+   
+   1. break ( breaks body of loop early )
+   2. continue ( skip to the next loop )
+   3. return ( exits the current function (regardless of control flow ))
+   4. throw  ( indicates an exception that must be caught by an exception handler )
+
+
+   // Chaining if..else if..else statements 
+
+   Ex. 
+   if (new Date().getDay() == 3) {
+       totalBet = 1; 
+   } else if (funds === 7) {
+       totalBets = funds; 
+   } else {
+       console.log("No Superstition here!"); 
+   }
+
+   // Metasyntax 
+
+   - Extended Backus-Naur Form (EBNF)
+
+ - while statement 
+        while (condition)
+            statement 
+
+ - if..else statement 
+        if(condition)
+            statement1
+        [else 
+            statement2]
+
+    * if (condition is truthy) 
+         statement1 will execute
+      othewise 
+         statement2 will execute 
+
+ - do.. while 
+        do 
+            statement 
+        while(condition)
+
+     * statement is executed at least once, and is repeatedly executed as long as the condition is truthy
+
+ - for statement 
+        for([Initializer]; [condition]; [final-expression])
+            statement 
+
+     * Before the loop runs, Initialization is executed. As long as condition is true, statement is executed 
+      then final-expression is executed before testing condition again. 
