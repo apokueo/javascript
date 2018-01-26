@@ -258,5 +258,137 @@ fixed-precision numbers.
 	'Under development. Come back to it to research.'
 
 
-###
+### Numbers as Strings
+
+	-JavaScript will automatically convert strings that contain numbers to numbers as necesary.
+
+		const result1 = 3 + '30'; 	// 3 is coverted to a string; result is string '330'
+		const result2 = 3 + '30';	// '30' is converted to a number; result is numeric 90
+
+
+
+### Booleans
+
+	-Booleans are value types that have only two possible values: true and false. Some languages (like C) use numberss instead of booleans:
+	0 is false and every other number is true.  JavaScript has a similar mechanism, allowing 'any' value (not just numbers) to be considered 
+	"truthy" or "falsy."
+
+		let heating = true;
+		let cooling = false;
+
+
+
+### Symbols
+
+	-New in ES6 are symbols:  a new data type representing unique tokens.  Once you create a symbol, it is unique:  it will match no other 
+	symbol.  Symbols are like objects (every objet is unique).  Symbols are primitives.  
+		Symbols are created with the Symbol() constructor.  You can optionally provide a description, which is just for convenience:
+			
+			const RED = Symbol();
+			const ORANGE = Symbol("The color of a sunset!);
+			RED === ORANGE // false:  every symbol is unique
+
+
+### null and undefined
+
+		let currentTemp;		//implicit value of undefined
+		const targetTemp = null;	//target temp null -- "not yet known"
+		currentTemp = 19.5;		//currentTemp now has value
+		currentTemp = undefined;	//currentTemp appears as if it had never
+						//been initialized; not recommended
+
+
+### Objects
+
+	- An object is a container. Objects can represent multiple or complex values. An object is a container, and the contents of that container can change over time (it's the same object with different contents).
+	
+		const obj = {};
+
+	-The contents of an object are called 'properties' (or members), and properties consist of a 'name' (or 'key') and 'value'.  Property names 
+	must be strings or symbols, and values can be any type (including other objects).  Let's add a property color to obj:
+
+	
+		obj.size;		// undefined
+		obj.color;		// "yellow"
+
+		obj["not an identifier"] = 3;
+		obj["not an identifier"];	// 3
+		obj["color"];			// "yellow"
+
+		const SIZE = Symbol();
+		obj[SIZE] = 8;
+		obj[SIZE];			// 8
+
+
+		const sam1 = {
+			name: 'Sam',
+			age: 4,	
+		};
+
+		
+		const sam2 = { name: 'Sam', age: 4 };		// declaration on one line
+
+		const sam3 = {
+			name: 'Sam',				
+			classification: {			// property values can
+				kingdom: 'Anamalia		// be objects themselves
+				phylum:	'Chordata',
+				class: 'Mamalia',
+				order: 'Carnivoria',
+				family: 'Felidae',
+				subfamily: 'Felinae',
+				genus:	'Felis',
+				species: 'catus',
+			},
+		};
+
+
+
+			-Objects can also contain 'functions'.
+
+		sam3.speak = function() { return "Meow"; } ;
+
+
+
+### Number, String, and Boolean Objects
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+### Arrays
+
+	In JavaScript, arrays are a special type of object. Arrays support a number of useful methods that make this data type an extremely powerful
+	way to express information.
+	
+	Arrays in JavaScript have the following properties:
+		-Array size is not fixed; you can add or remove elements at any time.
+		-Arrays are not homogeneous; each individual element can be of any type.
+		-Arrays are zero-based.  That is, the first element in the array is element 0.
+
+
+		const a1 = [1, 2, 3, 4]; 		//array containing numbers
+		const a2 = [1, 'two', 3, null];		//array containing mixed types
+		const a3 = [				//array on multiple lines
+			
+			"What the hammer? What the chain?",
+			"In what furnace was thy brain?",
+			"What the anvil? What dread grasp",
+			"Dare its deadly terrors clasp?",
+
+		];
 
