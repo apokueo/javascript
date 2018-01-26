@@ -1,0 +1,57 @@
+                    <h1> Chapter 4 </h1>
+
+    flowcharts represent the flow an application will take. Leading it through true or false statements(decisions) or actions(place bet, object property assigment)
+
+    for our basic app were making a mid-19th century game called Crown and Anchor. Here is what we will need in our flow chart.
+
+
+    1. Variable assignment: funds = 50, bets = {},hand = []
+    2. Random int between m and n, inclusive: rand(1, 6)
+    3. Random face string ("heart", "crown", etc)
+    4. Object property assigment: bets["heart"] = 5,bets[randFace()] = 5
+    5. Addding elements to array: ahnd.push(randFace())
+    6. Basic arithmetic: funds - totalBet, funds + winnings
+    7. Increment : roll++
+    8. Numeric comparisons(funds > 0, funds < 100)
+    9. Equality comparison (totalBet === 7)
+    10. Logical Operator (funds > 0 && funds < 100)
+
+
+    <h1> While loops </h1>
+
+    While loop repeats code as long as its condition is met.
+
+    ex.1
+      let funds = 50; //starting condidtion
+
+      while(funds > 1 && funds < 100) {
+        //place objects
+        //roll dice
+        //collect winning
+      }
+
+  <h1> Block Statements </h1>
+
+  sometimes called compound statemnts are not control flow stments
+
+  series of statments wrapped in cruly braces
+
+
+  <h1> Helper Functions </h1>
+
+Built into Javascript their are function that already have identifiers.
+
+one is:
+// returns a random integer in the range of [m, n] (incusive)
+rand(m, n) {
+  return m + Math.floor((n - m + 1)*Math.random());
+}
+
+another :
+
+//randomly returns a string representing one of the six
+// Crown and Anchor faces
+function randFace() {
+  return ["crown", "anchor", "heart", "spade", "club", "diamond"]
+    [rand(0,5)];
+}
