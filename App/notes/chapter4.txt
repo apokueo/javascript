@@ -55,3 +55,66 @@ function randFace() {
   return ["crown", "anchor", "heart", "spade", "club", "diamond"]
     [rand(0,5)];
 }
+
+// If the condition of the while loop is falsey it wont run even once
+// While loops provide initial condition for stopping the loops
+// Do.. While loops provide the exit condition at the end.
+
+let remaining = totalBet;
+do {
+  let bet = rand(1, remaining);
+  let face = randFace();
+  bets[face] = bets[face] + bet;
+  remaining = remaining - bet;
+} while (remaining > 0);
+
+// A for loop reqires 3 things
+ // 1. an initializer (which states where it will begin)
+ // 2. a conditition (roll < 3)
+ // 3. final expression (roll++)(increments roll by 1 for to make loop)
+
+const hand = [];
+for(let roll = 0; roll < 3; roll++) {
+  hand.push(randFace());
+}
+
+// <h1> my work </h1> 
+
+let funds = 50; //starting condidtion
+
+while(funds > 1 && funds <= 100) {
+	{
+	funds = funds + 2;
+	funds = funds -1;
+	}
+
+};
+
+console.log(funds);
+
+
+let head = [
+	{
+		'first': "james", 'last': "last-name", 'email': ["hello", "world", "2", 4],
+	}
+]
+
+console.log(head[0].email);
+
+
+// if.... else
+
+
+rand(m, n) {
+	return m + Math.floor((n - m + 1)*Math.random());
+};
+
+const bets = {crown: 0, anchor: 0, heart: 0, spade: 0, club: 0, diamond: 0};
+let totalBet = rand(1, funds) // not sure I get the rand function here
+if(totalBet === 7) {
+	totalBet = funds;
+	bets.heart = totalBet
+} else {
+	//distribute total bet
+}
+funds = fudns - totalBet;
