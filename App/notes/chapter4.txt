@@ -78,7 +78,7 @@ for(let roll = 0; roll < 3; roll++) {
   hand.push(randFace());
 }
 
-// <h1> my work </h1> 
+// <h1> my work </h1>
 
 let funds = 50; //starting condidtion
 
@@ -118,3 +118,103 @@ if(totalBet === 7) {
 	//distribute total bet
 }
 funds = fudns - totalBet;
+
+/* COMPPLETE FLOW OF GAME
+
+//returns a random int int in the range [m, n](inclusive)
+function rand(m, n) {
+	return m + Math.floor((n - m + 1)*Math.random());
+}
+
+function randFace() {
+	return ["crown", "anchor", "heart", "spade", "club", "diamond"]
+		[rand(0, 5)];
+}
+
+let funds = 50; //starting condidtion
+let round = 0;
+
+while(funds > 1 && funds <= 100) {
+	round++;
+	console.log(`round ${round}:`);
+	console.log(`\tstarting funds: ${funds}p`);
+	//place bets
+	let bets = {crown: 0, anchor: 0, heart: 0, spade: 0, club: 0, diamond: 0};
+	let totalBet = rand(1, funds) // not sure I get the rand function here
+	if(totalBet === 7) {
+		totalBet = funds;
+		bets.heart = totalBet
+	} else {
+		//distribute total bet
+		let remaining = totalBet;
+		do {
+			let bet = rand(1, remaining);
+			let face = randFace();
+			bets[face] = bets[face] + bet;
+			remaining = remaining -bet;
+		} while(remaining > 0)
+	}
+	funds = funds - totalBet;
+	console.log('\tbets: '+
+	Object.keys(bets).map(face => `${face}: ${bets[face]} pence`).join(', ') + ` (total: ${totalBet} pence)`);
+
+	//roll dice
+	const hand = [];
+	for(let roll = 0; roll < 3; roll++) {
+		hand.push(randFace());
+	}
+	console.log(`\thand: ${hand.join(', ')}`);
+
+	//collect winnings
+	let winnings = 0
+	for(let die = 0; die , hand.length; die++) {
+		let face = hand[die];
+		if(bets[face] > 0) winnings = winnings + bets[face];
+	}
+	console.log(`\twinnings: ${winnings}`);
+}
+console.log(`\tending funs: ${funds}`);
+
+*/
+
+<h1> Control Flow </h1>
+
+// 2 sub categories of control flow:
+  //1. conditional( or branching)
+  //2. loop contro flow
+
+  4 statements that can alter the normal control flow
+    1. break
+        breaks out of loops
+    2. continue
+        skips to the next step in the loop
+    3. return
+        Exits the current function(regardless of control flow)
+    4. throw
+      Indicates an exception that must be caught by and exception handler
+
+  Metasyntax is a term that describes or communicates yet another syntax .
+
+  ~ expresssion is something that results in a value.
+  ~ condition refers to an expression that is treated as truthy or falsy
+
+  examples.
+
+  while(condition)
+    statement
+  ~ while condition is truthy , statement will be exicuted
+
+  if(condition)
+    statement1
+    [else
+      statement2]
+  ~ if condition is truthy, statement1 will be exicuted; otherwise, statement2 will be exicuted.
+
+  do {
+      statment
+  } while (condition)]);
+  ~statement is exicuted at least once , and is repeatedly exicuted as long as condition is truthy
+
+  for([initialization]; [condition]; [final-expression])
+    statments
+  ~before the loop runs, initialization is exicuted. As long as the condition is true , statement is exicuted, then final-expression is exicuted before testing condition again.
