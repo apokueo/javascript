@@ -1,10 +1,10 @@
 #"Learning JavaScript"
 # Chapter 3 discusses Literals, Variables, Constants, and Data Types
 
-## The importance of vocabulary is often overlooked when you're learning how to program. This chapter is about data, and how we translate data into a format that JavaScript can understand. Before we dive into the data types available in JavaScript, we will discuss 'variables', 'constants', and 'literals', which are the mechanisms available to us in JavaScript for 'holding' data.
+### The importance of vocabulary is often overlooked when you're learning how to program. This chapter is about data, and how we translate data into a format that JavaScript can understand. Before we dive into the data types available in JavaScript, we will discuss 'variables', 'constants', and 'literals', which are the mechanisms available to us in JavaScript for 'holding' data.
 	Most of these terms are not specific to JavaScript, but are commonly understood in computer science.  Having a good grasp of the      concepts is important, of course, but paying attention to vocabulary makes it easy for you to transfer your knowledge to other languages, and learn from more sources. 
 
-# Variable and Constants
+### Variable and Constants
 - A variable is essentially a named value. The name implies that the value can change at any time.  
 	--example: let currentTempC = 22; // degrees Celsius
 - The 'let' keyword does 2 things:
@@ -25,6 +25,68 @@
 - A 'constant' (new in ES6) also holds a value, but unlike a variable, can't be changed after initialization.  Let's use a 'constant' to  
 express a comfortable room temperature and a maximum temp (const can also declare multiple constants):
 	const ROOM_TEMP_C = 21.5, MAX_TEMP_C = 30;
+
+-Conventional but not required, 'constants' refer to a specific number or string to be named with all uppercase letters and underscores to
+ spot code, and provide visual cue that you shouldn't try to change their value.  (see example above)
+
+## Variables or Constants: The advantage of using constants is that it makes it harder to accidentally change the value of something that 
+shouldn't be changed. Rule of thumb: to using a 'constant'- if you find you have a legitimate need to change the value of the constant, you 
+can always change it to a variable.
+
+- Variables: 'One situation that is preferable of 'variables' instead of 'constants': variables are used in loop control.  Also variables are used when the value of something is naturally changing over time (such as targetTempC or currentTemp in Ch3).
+
+
+### Identifiers Names 
+	- Variable and Constant names (as well as function names) are called 'identifiers'.
+		-Identifiers must start with a letter, dollar sign ($), or underscore(_).
+
+		-Identifiers consist of letters, numbers, the dollar sign ($), and underscore(_).
+
+		-Unicode characters are allowed (for example).
+
+		-Identifiers cannot be a reserved word.
+
+	- Reserved words are words that JavaScript might confuse with part of the language. For example, you can't have a variable
+		called 'let'.
+	
+	-There's no single convention for JavaScript identifiers, but the two most common are:
+		-Camel case:
+			-currentTempC, anIdentifierName (so named because the capital letters look like the humps in a camel's back).
+
+		-Snake case:
+			-current_temp_c, an_identifier_name(slightly less popular).
+	-It is recommended that whichever convention you use or prefer, consistency is ideal and good practice. Select one and stick with it. If you
+	are working on a team or making your project available to a community, try choosing whatever the preferred convention is.
+	It is also advisable to adhere to the following conventions:
+		- Identifiers shouldn't start with a capital letter except for classes.
+	
+		- Very often, identifiers that start with one or two underscores are used to represent special or "internal" variables.  Unless you
+		need to create your own special category of variables, avoid starting variable names with an underscore.
+
+
+### Literals
+
+	-Some 'literals' = currentTempC = 22.5;
+	
+	-The word 'lieral' means that you're providing the value directly in the program.  Essentially, a 'literal' is a way to 'create a value'; 
+	JavaScript takes the literal value you provide and creates a data value from it.
+	
+	-It's important to understand the difference between a 'literal' and an 'identifier'.  For example, when we created a variable called room1,
+	which had the value "conference_room_a".  room1 is an 'identifier'(referring to a constant), and "conference_room_a" is a 'string literal'
+	(and also the value of room1).  
+
+	-JavaScript is able to distinguish the identifier from the literal by the use of quotation marks (numbers don't need any sort of quotation 
+	because identifiers can't start with a number).
+		ex: let room1 = "conference_room_a";	// "conference_room_a" (in quotes) is
+							// a literal
+
+		    let currentRoom = room1;		// currentRoom now has the same value
+							// as room1 ("conference_room_a")
+
+		    let currentRoom = conference_room_a; // produces an error; no identifier
+							 // called conference_room_a exists
+ 
+			
 
 
  
