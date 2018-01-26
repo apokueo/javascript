@@ -1,2 +1,31 @@
-"Learning JavaScript"
-// Chapter 3 discusses Literals, Variables, Constants, and Data Types
+#"Learning JavaScript"
+# Chapter 3 discusses Literals, Variables, Constants, and Data Types
+
+## The importance of vocabulary is often overlooked when you're learning how to program. This chapter is about data, and how we translate data into a format that JavaScript can understand. Before we dive into the data types available in JavaScript, we will discuss 'variables', 'constants', and 'literals', which are the mechanisms available to us in JavaScript for 'holding' data.
+	Most of these terms are not specific to JavaScript, but are commonly understood in computer science.  Having a good grasp of the      concepts is important, of course, but paying attention to vocabulary makes it easy for you to transfer your knowledge to other languages, and learn from more sources. 
+
+# Variable and Constants
+- A variable is essentially a named value. The name implies that the value can change at any time.  
+	--example: let currentTempC = 22; // degrees Celsius
+- The 'let' keyword does 2 things:
+	1. it declares (creates) the variable currentTempC 
+	2. assigns it an initial value
+		Note- we don't use 'let' again; 'let' specifically declares a variable, and you can only do it once.
+
+- With numbers, there's no way to associate units with the value. Choosing to add "C" to the variable name to make it clear that the units are degrees Celsius.  The language can't enfore this, but it's a form of documentation that prevents casual mistakes.
+
+- When you declare a variable, you don't have to provide it with an initial value. It implicitly gets a special value, 'undefined':
+	let targetTempC; //equivalent to "let targetTempC = undefined";
+
+- Declaring multiple variable with the same 'let' statement:
+	let targetTempC, room1 = "conference_room_a", room2 = "lobby";
+
+- In this example, we've declared three variables: targetTempC isn't initialized with a variable, so it implicitly has the value undefined; 	room1 is declared with an initial value of "conference_room_a"; and room2 is declared with an initial value of "lobby".  room1 and room2 are examples of string(text) variables.
+
+- A 'constant' (new in ES6) also holds a value, but unlike a variable, can't be changed after initialization.  Let's use a 'constant' to  
+express a comfortable room temperature and a maximum temp (const can also declare multiple constants):
+	const ROOM_TEMP_C = 21.5, MAX_TEMP_C = 30;
+
+
+ 
+
