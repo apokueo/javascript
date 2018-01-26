@@ -49,7 +49,7 @@ while (funds > 1 && funds < 100 ) {
     console.log('\tbets: ' +
     Object.keys(bets).map(face => `${face}: ${bets[face]} pence`).join(', ') + 
     ` (total: ${totalBet} pence) `);  
-)
+
     // roll dice 
     const hand = []; 
     for (let roll = 0; roll < 3; roll++) {
