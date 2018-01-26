@@ -156,4 +156,107 @@ fixed-precision numbers.
 		-const ninf = -Infinity;
 		-const nan = NaN;		// "not a number"
 
+	
+	-No matter what literal format you use (decimal, hexadecimal, exponential, etc.), the number that gets created is stored in the same format: 
+	a double.  The various literal formats simply allow you to specify a number in whatever format is convenient.  JavaScript has limited support 		for displaying numbers in different formats.
+
+	NaN are not numbers (you do computation with), they are available as 'placeholders'.
+
+	In addition, there are some useful properties of the corresponding Number object that represent important numeric values:
+	
+		-const small = Number.EPSILON;			// the smallest value that can be
+								// added to 1 to get a distinct number
+								// larger than 1, approx. 2.2e-16
+		-const bigInt = Number.MAX_SAFE_INTEGER;	// the largest representable integer
+		-const max = Number.MAX_VALUE;			// the largest representable number
+		-const minInt = Number.MIN_SAFE_INTEGER;	// the smallest representable integer
+		-const min = Number.MIN_VALUE;			// the smallest representable number
+		-const nInf = Number.NEGATIVE_INFINITY;		// the same as - Infinity
+		-const nan = Number.NaN;			// the same as NaN
+		-const inf = Number.POSITIVE_INFINITY;		// the same as Infinity
+
+	
+
+### Strings
+
+	-A 'string' is simply text data (the word 'string' comes from "string of characters"). Strings in JavaScript represent 'Unicode' text. 
+	Unicode is a computing industry standard for representing text data, and includes 'code points' for every character or symbol in most known
+	human languages (including "languages" that might surprise you, such as Emoji).
+	
+	-In JavaScript, 'string literals' are represented with single quotes, double quotes, or backticks.  The backtick was introduced in ES6 to 
+	enable 'template strings'.
+
+
+
+### Escaping
+	
+	-We can escape quotation marks with a backslash(\), which is a signal to JavaScript that the string is 'not' ending. 
+		-const dialog1 = "He looked up and said \"don't do that!\" to Max. ";
+		-const dialog2 = 'He looked up and said "don\'t do that!" to Max.';
+
+		-const s = "In JavaScript, use \\ as an escape character in strings.";
+
+
+### Special Characters
+
+	-The backslash is used for more than simply escaping quotation marks: it is also used to represent certain nonprintable characters, such
+	as newlines and arbitrary Unicode characters.
+
+		- \n 	Newline (technically a line feed character: ASCII/Unicode	"Line1\nLine2"
+			10)
+
+		- \r	Carriage return (ASCII/Unicode 13				"Windows line 1\r\nWindows line 2"
+
+
+		- \t	Tab (ASCII/Unicode 9						"Speed: \t60kph
+
+
+		- \'	Single quote (note that you can use this even when not		"Don\ 't"
+			necessary)
+
+		- \"	Double quote (note that you can use this even when not 		'Sam said \ "hello\ ".'
+
+
+		- \`	Backtick (or "accent grave"; new in ES6)			`New in ES6: \` strings.`
+
+
+		- \$	Dollar sign (new in ES6)					`New in ES6: ${interpolation}`
+
+
+		- \\	Backslash							"Use \\\\ to represent \\!"
+
+
+
+	- Rarely used special characters:
+
+
+
+
+
+
+
+
+
+### Template Strings
+
+	- A very common need is to express values in a string. This mechanism is called 'string concatenation':
+		
+		let currentTemp = 19.5;
+		// 00b0 is the Unicode code point for the "degree" symbol
+		const message = "The current temperature is " + currentTemp + "\u00b0C";
+
+	-ES6 introduces 'string templates' (also known as 'string interpolation'). 'String templates' provide a shorthand way of injecting values
+	into a string.  String templates use backticks instead of single or double quotes:
+
+		let currentTemp = 19.5;
+		const message = `The current temperature is ${currentTemp}\u00b0C`;
+
+
+
+### Multiline Strings
+
+	'Under development. Come back to it to research.'
+
+
+###
 
