@@ -88,6 +88,72 @@ can always change it to a variable.
  
 			
 
+	-You can use a literal anywhere you can use an identifier (where a value is expected). For example, in our program, we could just use the
+	numeric literal 21.5 everywhere instead of using ROOM_TEMP_C. If you use the numeric literal in a couple places, this may be OK.
+	But if you use it in 10 or 100 places, you should be using a constant or variable instead: it makes your code easier to read, and you can 
+	change the value in one place instead of many.
 
- 
+
+### Primitive Types and Objects
+
+	-In JavaScript, values are either 'primitives' or 'objects'. Primitive types (such as string and number) are 'immutable'.
+
+		-There are Six Primitive types:
+			
+			-Number
+			
+			-String
+		
+			-Boolean
+	
+			-Null
+	
+			-Undefined
+	
+			-Symbol
+
+	-Note that immutability doesn't mean the 'contents of a variable' can't change:
+		
+		let str = "hello";
+		str = "world";
+
+			-Pay attention to the keywords 'let' and 'str' in the second object/value variable. Only 'str' on the 2nd line can change
+				content. Not the 'let'.
+
+
+	-Note in addition to these 6 Primitive types, there are 'Objects'.  Unlike primitives, objects can take on different forms and values, and are more chameleon-like.  Because of their flexibility, 'objects' can be used to construct custom data types that JavaScript provides already built-in.
+			- Array
+
+			-Date
+	
+			-RegExp
+	
+			-Map and WeakMap
+
+			-Set and WeakSet
+
+	Primitive types have corresponding Object types:
+
+		- number  |  Number
+		- string  |  String    {All 3 Object types do not store value but rather handle functionality corresponding to primitive.}
+ 		- boolean |  boolean
+
+
+### Numbers
+
+	-JavaScript is an unusual programming language in that it only has this one numeric data type. On one hand, this favors beginners however, on the other hand, it reduces JavaScript's suitability for certain applications that require the performance of integer arithmetic, or the precision of
+fixed-precision numbers.
+
+	-JavaScript recognizes four types of numeric literal:  decimal, binary, octal, and hexa-decimal.
+		
+		-let count = 10;		//integer literal; count is still a double
+		-const blue = 0x0000ff;		//hexadecimal (hex ff = decimal 255)
+		-const umask = 0o0022;		//octal (octal 22 = decimal 18)
+		-const roomTemp = 21.5;		//decimal
+		-const c = 3.0e6;		//exponential (3.0 x 10^6 = 3,000,000)
+		-const e = -1.6e-19;		//exponential (-1.6 x 10^-19 = 0.00000000000000000016)
+		-const inf = Infinity;
+		-const ninf = -Infinity;
+		-const nan = NaN;		// "not a number"
+
 
