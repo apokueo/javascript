@@ -7,3 +7,22 @@ Expressions and Operators
 
 - nonexpression statements should be thought of as 'instruction' 
 - expressions request for something
+
+Arithmetic Operators
+
++ - / * % - + ++ ++ -- --
+
+* all nuumbers in javascript are doubles, meaning if you perform an arithmetic operation on an integer (such as 3/2), the result will be a decimal number (1.5)
+
+* Unary are evaluated before subtraction: 
+	Ex. 
+		const x = 5; 
+		const y = 3 - -x; // y is 8
+
+		Operator Precedence 
+
+		* see chart in "Javascript the Weird Parts" 
+
+Note: same thing applies for (+) unary plus operator 
+
+
