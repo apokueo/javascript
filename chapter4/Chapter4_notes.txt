@@ -148,4 +148,4 @@ while(funds > 1 && funds < 100)
 
 ### for Loop
 	
-	
+	-The 'for' loop is extremely flexible (it can even replace a 'while' or 'do 	
