@@ -81,3 +81,71 @@ while(funds > 1 && funds < 100)
 	  funds = funds - 1;			// after while loop
 
  
+
+	-One syntactically valid choice is nearly universally reviled:  mixing blocks and single statements in the same 'if' statement:
+
+	//don't do this
+	if(funds > 1) {
+		console.log("There's money left!");
+		console.log("That means keep playing!");
+	} else
+		console.log("I'm broke! Time to quit.");
+
+	// or this
+	if(funds > 1)
+		console.log("There's money left!  Keep playing!");
+	else  {
+		console.log("I'm broke"!);
+		console.log("Time to quit.")
+	}
+
+
+### Helper Functions
+
+	-To follow along with the examples in this chapter, we'll need two 'helper functions'.  
+		
+		// returns a random integer in the range [m, n] (inclusive)
+		function rand(m, n) {
+			return m + Math.floor((n - m + 1)"Math.random ());
+		}
+
+		// randomly returns a string representing one of the six
+		// Crown and Anchor faces
+		function randFace() {
+			return ["crown", "anchor", "heart", "spade", "clud", "diamond"]
+				[rand(0,5)];
+		}
+
+
+
+### if...else Statement
+
+	const bets = { crown: 0, anchor: 0, heart: 0,
+		spade: 0, club: 0, diamond: 0 };
+	let totalBet = rand(1, funds);
+	if(totalBet === 7) {
+		totalBet = funds;
+		bets.heart = totalBet;
+	} else {
+		// distribute total bet
+	}
+	funds = funds - totalBet;
+
+
+### do...while Loop
+
+	-Note how this differs from the 'while' loop: the decision comes at the end, not the beginning. 'do...while loops are for when you know you 
+	always want to execute the body of the loop at least once (if the condition in a while loop starts off as falsy, it won't ever run once). Now 		in JavaScript:
+		
+		let remaining = totalBet;
+		do {
+			let bet = rand(1, remaining);
+			let face = randFace();
+			bets[face] = bets[face] + bet;
+			remaining = remaining - bet;
+		} while(remaining > 0);
+
+
+### for Loop
+	
+	
