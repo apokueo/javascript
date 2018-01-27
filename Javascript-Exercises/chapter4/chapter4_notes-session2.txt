@@ -1,0 +1,38 @@
+{ Additional for Loop Patterns }
+
+- by combining multiple assignments and finals expressions using the comma operator
+
+Ex. for (let temp, i=0, j=1; j < 30; temp = i, i = j, j = i + temp) 
+    console.log(j); 
+
+    Formula to create an endless loop: 
+        for (;;) console.log("I will loop forever" ); 
+
+Note that a for loop can always be written as a while loop. In other words: for([initialization]; [condition]; [final-expression])
+statement
+is equivalent to:
+    [initialization]
+    while([condition]) {
+statement
+        [final-expression]
+    }
+
+{ switch statements }
+
+- whereas if...else statements allow you to take 1 of 2 paths, swith statements allow you to
+  take multiple paths based on a single condition. 
+- for switch statements the condition is an expression that evaluates to a value
+
+Syntax is:
+    switch(expression) {
+        case value1:
+            // executed when the resultof expression matches value1
+            [break;]
+        case value2: 
+            // executed when the result of expression matches value2 
+            [break;]
+            ... (and so on)
+        default:
+            [break;]
+            
+    }
