@@ -1,0 +1,9 @@
+Expressions and Operators 
+
+- an expression is a special kind of 'statement' that evaluates to a value 
+- the distinction between an expression statement (which results in a value) and a 
+  non-expression statement (which does not) is critical: understanding the difference
+  gives you the tools you need to combine language elements in useful ways
+
+- nonexpression statements should be thought of as 'instruction' 
+- expressions request for something
