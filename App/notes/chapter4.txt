@@ -217,4 +217,56 @@ console.log(`\tending funs: ${funds}`);
 
   for([initialization]; [condition]; [final-expression])
     statments
-  ~before the loop runs, initialization is exicuted. As long as the condition is true , statement is exicuted, then final-expression is exicuted before testing condition again.
+  ~ before the loop runs, initialization is exicuted. As long as the condition is true , statement is exicuted, then final-expression is exicuted before testing condition again.
+
+  Switch statments
+
+   switch(expression) {
+     case value1:
+     //exicuted when expressions matches value1
+     [break;]
+     case value2:
+     [break;]
+     case value3:
+     [break;]
+   }
+
+   For.. in loops
+
+   for(variable in object)
+    statment
+
+  ex. const player = {name: "thomas", rank: "midshipman", age: 25}
+      for(let prop in player) {
+        if(!player.hasOwnProperty(prop)) continue;
+        console.log(prop + ' ' + player[prop]);
+      }
+
+  For.. of loops
+  for(variable of object)
+    statement
+
+  ex.
+    const hand = [randFace(), randFace(), randFace()];
+    for(let face of hand)
+      console.log(`You rolled...${face}!`);
+
+  const hand = [randFace(), randFace(), randFace()];
+  for(let i=0 ;o <hand.length; i++) {
+    console.log(`Roll ${i+1}: ${hand[i]}`);
+  }
+
+  Useful Control Flow Patterns
+
+  ~ using continue to reduce conditional nesting
+
+    ~ using break or return t oAvoid Unnecessary Computation
+
+      ~ using value of Index after loop completion
+
+       ~ using Decending Indexes when modifying lists.
+
+
+
+
+  
