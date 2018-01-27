@@ -34,5 +34,30 @@ Syntax is:
             ... (and so on)
         default:
             [break;]
-            
+
     }
+
+    { for in loop }
+
+    for(variable in object)
+        statement
+
+    const player = { name: 'Thomas', rank: 'Midshipman', age: 25}; 
+    for (let prop in player) {
+        if(!player.hasOwnProperty(prop)) continue; 
+        console.log(prop + ': ' + player[prop]); 
+    }
+
+    { for of loop }
+
+    for(variable of object)
+        statement 
+
+    - can be used on arrays, but more generically on any object that is iterable
+
+    const hand = [randFace(), randFace(), randFace()]; 
+    for(let face of hand)
+        console.log(`You rolled...${face}!`); 
+    
+    - great for when you need to loop over an array but don't need to know its index. 
+    - in the case that you need to know the index of an array - use a for loop 
