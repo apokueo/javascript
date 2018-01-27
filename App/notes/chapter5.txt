@@ -1,0 +1,19 @@
+                          <h1> Expressions and Operators </h1>
+
+          Expressions are special statements that evaluate to a value.
+          non-expressions respectively to do not and only receive instruction
+
+          expressions are more similar to requests for something.
+
+
+          ~ The order in which javascript evaluates expressions is called the "operator precedence"
+
+      2 expressions that are not operator expressions
+          1. identifier expressions
+          2. literal expressions
+
+
+
+                  <h1> Operators </h1>
+
+            
