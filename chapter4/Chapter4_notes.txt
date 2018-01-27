@@ -39,3 +39,45 @@ while(funds > 1 && funds < 100) {
 	funds = funds - 1; // one step back
 }
 
+	-Block statement w/ control flow is not required.
+
+let funds = 50; // starting conditions
+
+while(funds > 1 && funds < 100)
+	funds = funds + 2;
+
+### Whitespace
+
+	-JavaScript doesn't care about additional whitespace (including newlines): 1 space is as good as 10, or 10 spaces and 10 newlines.  This
+	doesn't mean you should use whitespace capriciously. 
+	For example, the preceding 'while' statement is equivalent to:
+
+		while(funds > 1 && funds < 100)
+		
+		funds = funds + 2;
+
+	-But this hardly makes it look as if the two statements are connected! Using this formatting is very misleading, and should be avoided.  The 
+	 following equivalents, however, are relatively common, and mostly unambiguous:
+	
+		// no newline
+		while(funds > 1 && funds < 100) funds = funds + 2;
+
+		// no newline, block with one statement
+		while(funds > 1 && funds < 100) { funds = funds + 2; }
+
+	-There are those who insist that control flow statement bodies - for the sake of consistency and clarity - should always be a block statement
+	(even if they contain only one statement).  While I do not fall in this camp, I should point out that careless indentation fuels the fire of
+	this argument:
+
+		while(funds > 1 && funds < 100)
+			funds = funds + 2;
+			funds = funds + 1;
+
+	-At a glance, it looks like the body of the while loop is executing two statements (two steps forward and one step back), but because there's no block statement here, JavaScript interprets this as:
+
+	while(funds > 1 && funds < 100)
+		funds = funds + 2;		//while loop body
+
+	  funds = funds - 1;			// after while loop
+
+ 
