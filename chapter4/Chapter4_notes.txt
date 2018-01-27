@@ -1,0 +1,41 @@
+## Chapter 4 Notes 
+
+### While Loops
+	
+	-A while loop repeats code as long as its condition is met(true).
+		
+let funds = 50; 	// starting conditions
+
+while(funds > 1 && funds < 100) {
+	// place bets
+	
+	// roll dice
+
+	// collect winnings
+}
+
+
+### Block Statements
+	
+	- Block statements (sometimes called compound statements) are not control flow statements, but they go hand in hand with them.  A block
+	statement is just a series of statements enclosed in curly braces that is treated by JavaScript as a single unit.  While it is possible to
+	have a block statement by itself, it has little utility. For example:
+
+{  // start block statement
+	console.log("statement 1");
+	console.log("statement 2");
+} // end block statement
+
+console.log("statement 3");
+
+	-Block statements become useful with control flow statements.  For example, the loop we're executing with our while statement will execute the entire block statement before testing the condition again.
+
+let funds = 50; 	// starting conditions
+
+while(funds > 1 && funds < 100) {
+
+	funds = funds + 2; // two steps forward
+
+	funds = funds - 1; // one step back
+}
+
