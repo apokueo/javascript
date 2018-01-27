@@ -148,4 +148,15 @@ while(funds > 1 && funds < 100)
 
 ### for Loop
 	
-	-The 'for' loop is extremely flexible (it can even replace a 'while' or 'do 	
+	-The 'for' loop is extremely flexible (it can even replace a 'while' or 'do...while' loop), but it's best suited for those times when 		you need to do things a fixed number of times (especially when you need to know which step you're on).
+
+
+	- A 'for loop' consists of three parts: the 'initializer' (i = 0), the 'condition' (i < 10), and the 'final expression' (i++).
+	It's nothing that can't be constructed with a 'while' loop, but it conveniently puts all the loop information in one place. 
+
+	Example: 
+		const hand = [],
+		for(let i = 0; i < 20; i++) {
+			hand.push(randFace());
+		}
+ 	
