@@ -16,4 +16,261 @@
 
                   <h1> Operators </h1>
 
-            
+            Operators are similar to the analogy of a verb to a noun. It is the required action in order to produce a value and assign it.
+
+        Some useful operators
+
+        + = addition
+        -  = subtraction
+        / = division
+        * = multiplication
+        % = Remainder
+        ++x = Pre-increment x by 1, and evaluate to new value
+        x++ = Post-increment x by 1, and evaluates to value of x before incrementing
+        --x = Pre-decrement : decrement x by 1, and evaluate to new value
+        x-- = Post-decrement x by 1, and evaluates to value of x before incrementing
+
+
+        urnary plus operator example.
+        // used when you are forcefully trying to convert a string number("5") into a double
+
+        const x = "5";
+        const y = 3 + +x
+        result would be 8 and "35" without the urnary operator.
+
+        understanding the difference between prefix and postfix operators
+        * pre will modify the variable and then evaluate the new value
+        * post will modify the variable and then evaluates to the value before modification.
+
+
+        Javascript currently has 56 operators and 19 precedence levels.
+        operators at the same precedence level evaluate right to left or left to right.
+
+
+        Comparison Operators
+
+        3 types
+
+          1. Strict equality or ===
+          2. Abstract equality or ==
+          // considered abstract if two values are part of the same object.
+             also disregards datatype
+          3. Relational or >= <=
+
+
+        NaN is not a number and is equal to false strictly and abstractly
+
+
+        <h1> String Concatenation </h1>
+
+        ex 3 + 5 + "8" = "88"
+           "3" + 5 + 5 = "355"
+
+        Logical Operators
+        (concerns itself with only true or false values)
+
+        Javascript allows the user to operate on values that are not booleans
+          Javascript also has a mechanism for mapping nonboolean values to boolean values.
+
+
+      <h2> Truthy and Falsy Values </h2>
+
+
+      falsy values = undefined, null, false, 0, NaN, ''(empty string)
+
+      everything else is truthy
+
+      <h2> And.. Or... Not </h2>
+
+      And = &&;
+      Or = ||;
+      Not = !
+
+      x    y   x && y
+
+      false false false
+      false true false
+      true false false
+      true true true
+
+
+      x     y    x || y
+
+      false false false
+      false true true
+      true false true
+      true true true
+
+
+      x    !x
+      false true
+      true false
+
+
+
+  <h1>  Object and Array Operators </h1>
+
+    operator  :   Description
+
+    .   :    memeber access
+
+    []  :   Computed member access
+
+    in   :    Property existence operator
+
+    new   :    Object instantiation operators
+
+    instanceof    :    Prototyping chain test operators
+
+    ...   :    Spread operator
+
+    delete  :   Delete operator
+
+
+  <h1>   Template Strings </h1>
+
+        can be used to inject the value of tan expression into a string.
+
+
+
+
+
+    -----------------CHAPTER 5 CODE BELOW-----------------------
+
+
+    const x1 = 5;
+const y1 = 3 - -x1;
+console.log(y1); // 8
+
+const s = "5";
+const x2 = 3 + +s;
+console.log(x2); // 8 : is converting string forcefully to double.
+
+
+let x = 2;
+const r1 = x++ + x++;
+const r2 = ++x + ++x;
+const r3 = x++ + ++x;
+const r4 = ++x + x++;
+
+let y = 10;
+const r5 = y-- + y--;
+const r6 = --y + --y;
+const r7 = y-- + --y;
+const r8 = --y + y--;
+
+console.log(r1);
+console.log(r2);
+console.log(r3);
+console.log(r4);
+console.log(r5);
+console.log(r6);
+console.log(r7);
+console.log(r8);
+
+
+
+const n = 5;
+const s2 = '5';
+
+const a = {name: "am object1"};
+const b = {name: "am object2"};
+
+console.log(n === s2);
+console.log(n !== s2);
+console.log(n === Number(s2));
+console.log(n !== Number(s2));
+console.log(n == s2);
+console.log(n != s2);
+console.log(a === b);
+console.log(a !== b);
+console.log(a == b);
+console.log(a != b);
+
+
+let n2 = 0.10;
+while(true) {
+	n2 += 0.10;
+	if(Math.abs(n2 - 0.3) < Number.EPSILON) break
+}
+console.log(`stopped at ${n2}`);
+
+
+const skipIt = true;
+let x3 = 0;
+const result = skipIt || x3++
+
+console.log(result);
+
+const doIt = false;
+x4 = 0;
+const result2 = doIt && x4++
+
+console.log(result2);
+
+const checkList = false;
+const checkListResult = checkList ? "Did it" : "Didn't do it.";
+console.log(checkListResult);
+
+
+// comma operator
+//simply evaluates two expressions anf resturns the result of the second one
+
+let i = 0, j = 10, z;
+z = (i++, j++);
+console.log(z);
+
+// BitWise Operator
+/*
+	allow you to preform operation on all the indivdual bits in a number
+	Javascript converts the numbers into 32-bit integers before performing bitwise operators, and then converts them back to doubles before
+	returning the result.
+
+*/
+// Void Operator
+//has one job. to evaluate it operands and then return undefined
+// one use for this is <a href="javascript:void 0"> Do nothing.</a>
+// which will prevent browser from navigating to a new page.
+
+let v, v0;
+v = v0 = 9.8;
+
+const nums = [3, 5, 15, 7, 5]
+let n8, is= 0;
+while((n8 = nums[is]) < 10, is++ < nums.length) {
+	console.log(`Number less than 10: ${n8}`);
+}
+console.log(`Number greater than 10 found: ${n8}`);
+console.log(`${nums.length} numbers remain`);
+
+
+/*
+Destructuring Assignment
+*/
+const obj = { bs: 2, cs: 3, ds: 4};
+//object deconstructing assignment below
+const {as, bs, cs } = obj
+console.log(as);
+console.log(bs);
+console.log(cs);
+//console.log(ds); returns ds is not defined
+
+// in this next example declaratio nand asingment in the same statement.
+
+const newExample = function ex(){
+	const obj2 = { b: 2, c: 3, d: 4 };
+	let  b, c;
+
+	//{a, b, c} = obj produces an error
+	({ b, c, } = obj2); // does not produce error
+
+}();
+console.log(newExample);
+
+const roomTempC = 21.5;
+let currentTempC = 19.5;
+const message = `the current temperature is ` + `${currentTempC-roomTempC}\u00b0C different than room temp.`;
+const fahrenheit = `The current temperature is ${currentTempC * 9/5 + 32}\u00b0F`;
+
+console.log(message);
+console.log(fahrenheit);
