@@ -117,6 +117,62 @@ Chapter 5 Expressions and Operators
 
 	
 	// using unnecessary unary pluses so that expressions line up
-	const
+	const x1 = 0, x2 = 3, x3 = -1.5, x4 = -6.33;
+	const p1 = -x1*1;
+	const p2 = +x2*2;
+	const p3 = +x3*3;
+	const p4 = -x4*4;
+
 
 	
+	-The increment operator (++) is effectively an assignment and addition operator all rolled in one.  The decrement(--) is an 
+	assignment and subtraction operator.  Understanding the difference between the 'prefix' and 'postfix' operators is important as
+	well.  
+	-The Arithmetic Operators: Increment Operator (++) is an Unary operator. Add one to its operand. If used as a prefix operator (++x),
+	returns the value of its operand after adding one; if used as a postfix operator (x++), returns the value of its operand before adding		one.
+	Decrement Operators is an Unary Operator. Subtracts one from its operand. The return value is analogous to that for the increment
+	operator.
+
+	Example:
+		let x = 2;
+		const r1 = x++ + x++;		// result = 4, value = 2
+		const r2 = ++x + ++x;		// result = 6, 
+		const r3 = x++ + ++x;		// 5
+		const r4 = ++x + x++;		// 5
+		let y = 10;
+		const r5 = y-- + y--;		// 20
+		const r6 = --y + --y;		// 22
+		const r7 = y-- + --y;		// 21
+		const r8 = --y + y--;		// 21
+
+
+	
+### Operator Precedence
+	
+	-JavaScript uses a similar set of rules to determine how to evaluate any expression - not just arithmetic expressions. You'll
+	be pleased to know that arithmetic expressions in JavaScript use the same order of operations you learned  in elementary school -
+	perhaps with the aid of the mnemonic "PEDMAS" or "Please Excuse My Dear Aunt Sally."
+	
+	-Currently, JavaScript has 56 operators grouped into 19 'precedence levels'.  Operators with a higher precedence are performed before
+	operators with a lower precedence. 
+
+	-Operators at the same precedence level are either evaluated 'right to left' or 'left to right'.  
+
+	let x = 3, y;
+	x += y = 6*5/2;
+	// we'll take this order of precedence, putting parentheses around
+	// the next generation:
+	// 
+	// multiplication and division (precedence level 14, left to right):
+	// 	x += y = (6*5)/2
+	//	x += y = (30/2)
+	//	x += y = 15
+	// assignment (precedence level 3, right to left):
+	//	x += (y = 15)
+	// 	x += 15		(y now has value 15)
+	//	18		(x now has value 18)
+
+
+### Comparison Operators
+
+	-
