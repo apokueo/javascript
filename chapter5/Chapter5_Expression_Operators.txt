@@ -1,0 +1,61 @@
+Chapter 5 Expressions and Operators
+
+
+	-An 'expression' is a special kind of statement that 'evaluates to a value'.  The distinction between an expression statment (which
+	results in a value) and a non-expression statement (which does not) is critical:  understanding the difference gives you the tools
+	you need to combine language elements in useful ways.
+
+	-(Nonexpression) statements are like instructions.  An (Expression) statement is a 'request for something'.  
+		In a programming language, it's similar: a nonexpression statement usually 'does' produce something, but only an expression
+		statement results in an explicit transfer of the thing that was produced.
+
+	-Expressions resolve to a value, and can (combine) them with other expressions, which in turn can be (combined) with other expression
+	and so on.
+	-Nonexpression statements might do somethings useful, but they (cannot be combined) in the same way.
+
+	-Because Expressions resolve to a value, you can assign them assignments.  That is, you can assign the result of the expression to
+		a variable, constant, or property.  
+	 Let's consider a common 'operation expression': multiplication.  Example: multiplication is an expression. See below:
+	
+		let x;
+		x = 3 * 5;
+
+
+	-1st line is a 'declaration statement; declaring the varible x.  In the 2nd line, are 2 combined expressions: 1st expression is 
+		3 * 5, multilplication expression that resolves to the value 15.  2nd expression: an 'assignment expression' that assigns
+		 the value 15 to the variable x. (Note the assignment itself is an expression and that an expression resolves to a value).
+
+		The assignment expressions resolve to the value that was assigned. So not only is x assigned the value 15, but the 'whole 
+		expression' also resolves to the value 15. Because the assignment is an expression that resolves to a value, we could turn
+		assign it to another variable. 
+		
+		Example: let x, y;
+		y = x = 3 * 5;
+
+
+		Now we have 2 variables, x and y, that  contain the value 15.  We are able to do this because multiplication and assignment
+		are both expressions.  When JavaScript sees combined expressions like this, it has to break the combination down and evaluate
+		it in parts, like so:
+
+			let x, y;
+			y = x = 3 * 5;		// original statement
+			y = x = 15;		// multiplication expression evaluated
+			y = 15; 		// first assignment evaluated; x now has value 15,
+						// y is still undefined
+			15;			// second assignment evaluated; y now has value 15,
+						// the result is 15, which isn't used for assigned to
+						// anything, so this final value is simply discarded
+
+
+		(Note - The order in which JavaScript evaluates expressions is called 'operator precedence'.)
+
+
+	-Most expressions, such as multiplication and assignment, are 'operator' expressions.  
+		'Multiplication Operator' = * (the asterisk)
+		'Operands' = (the numbers you are trying to multiply, which are themselves expressions).
+	-The 2 expressions that are NOT operator expressions are 'identifier expressions'(variable and constant names) and literal expression.		These are self-explanatory:  a variable or constant is itself an expression, and a literal is itself an expression.  Understanding
+	  this allows you to se how expressions provide homogeneity: if everything that results in a value is an expression, it makes sense
+	  variables, constants, and literals are all expressions.
+
+
+### Operators
