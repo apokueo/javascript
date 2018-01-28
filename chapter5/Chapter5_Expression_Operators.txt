@@ -59,3 +59,42 @@ Chapter 5 Expressions and Operators
 
 
 ### Operators
+
+	-You can think of operators as the "verb" to an expression's "noun".  An expression is a 'thing that results in a value'; an operator 		is something you 'do' to produce a value.  The outcome in both cases is a value.  
+		Operators take one or more 'operands' to produce a result.  For example, in the expression 1 + 2, 1 and 2 are the operands
+		and + is the operator.  While 'operand' is technically correct, you often see operands called 'arguments'.
+
+### Arithmetic Operators
+	
+	-JavaScripts's arithmetic operators:
+
+	Operator	Description			Example
+
+	+		Addition(also string		3 + 2 // 5 
+			concatenation) 
+	
+	-		Subtraction			3 - 2 // 1
+
+
+	/		Division			3/2 // 1.5
+
+
+	*		Multiplication			3*2  // 6
+
+
+	%		Remainder			3 % 2 // 1
+
+
+	-		Unary plus			-x // negative x; if x is 5, -x will be -5
+
+
+	+		Unary plus			+x // if x is not a number, this will attempt conversion
+
+
+	++ 		Pre-increment			++x // increments x by one, and evaluates to the new
+							value
+
+	++		Post-increment			x++ // increments x by one, and evaluates to value of x before the increment
+
+
+	--		Pre-decrement			--x // decrements x by one, and evaluates to the new value
