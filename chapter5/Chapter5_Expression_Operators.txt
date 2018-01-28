@@ -98,3 +98,25 @@ Chapter 5 Expressions and Operators
 
 
 	--		Pre-decrement			--x // decrements x by one, and evaluates to the new value
+
+
+	-(Note - All Numbers in JavaScript are doubles, meaning that if you perform an arithmetic operation on an integer (such as 3/2),
+	The result will be a decimal number (1.5)).
+		Subtraction and unary negation both use the same symbol (the minus sign). However, Unary negation is evaluated before
+		subtraction:
+
+		const x = 5;
+		const y = 3 - -x;	// y is 8
+
+	The same thing applies for unary plus. Unary plus is not an operator (used very often).  (When it is), it is usually to force a string		to be converted to a number, or to align values when are negated:
+
+		const s = "S";
+		const y = 3 + +s;	// y is 8; without the unary plus,
+					// it would be the result of string
+					// concatenation: "35"
+
+	
+	// using unnecessary unary pluses so that expressions line up
+	const
+
+	
