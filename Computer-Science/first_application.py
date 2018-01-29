@@ -6,7 +6,7 @@ for iteration in range(5):
         for letter in "hello, world": 
             count += 1 
         print("Iteration " + str(iteration) + "; count is: " + str(count)) 
-
+#this shit will loop until it can't loop anymore 
 
 
 for iteration in range(5): 
