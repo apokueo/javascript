@@ -1,0 +1,135 @@
+### Functions
+
+	-A function is a self-contained collection of statements that run as a single unit. Functions are central to JavaScript's power and
+	expressiveness.  Every function has a 'body;; this is the collection of statements that compose the function:
+		
+		function sayHello() {
+			// this is the body; it started with an opening curly brace...
+
+			console.log("Hello World!");
+
+			//... and  ends with a closing curly brace
+	
+		}
+
+
+	-An example of a 'function declaration' is shown above.  We're declaring a function called 'say Hello'. Simply declaring a function
+	does 'not' execute the body.  To 'call' a function (also called 'running', 'executing', 'invoking', or 'dispatching'), you use the 
+	name of the function followed by parentheses.
+
+		sayHello();	// "Hello, World!" printed to the
+				// console in different languages (if you added it in different languages)
+
+
+
+### Return Values
+
+	-Calling a function is an expression. Expressions resolve to a value. Return values show what value a function call resolves to. 
+	In the body of a function, the 'return' keyword will 'immediately terminate the function and return the specified value', which  is
+	what the function call will resolve to. Let's modify our example; instead of writing to the console, we'll return the greeting:
+		
+		function getGreeting() {
+			return "Hello world!";
+		}
+
+	Now when we call that function, it will resolve to the return value:
+
+		getGreeting();		// "Hello, World!"
+
+	If you don't explicitly call 'return', the return value will be undefined. A function can return any type of value.
+
+
+### Calling Versus Referencing
+	
+	-In JavaScript, functions are objects can be passed around and assigned just like any other object. Important:  Understand the
+	 distinction between 'calling' a function and simply 'referencing' it.  Follow a function identifier with parentheses; JavaScript 
+	knows that you're calling it: it executes the body of the function, and the expression resolves to the return value.  By not providing		parentheses, you're simply referring to the function just like any other value, and it's 'not' invoked.  
+
+	Being able to reference a function like any other value (without calling it) allows a lot of flexibility in the language.  For
+	example, you can assign a function to a variable, with allows you to call the function by another name:
+
+		const f = getGreeting;
+		f();		// "Hello, World!"
+
+
+	Or assign a function to an object property:
+	
+		const o = {};
+		o.f = getGreeting;
+		o.f();			// "Hello, World!"
+
+	Or even add a function to an array:
+
+		const arr = [1, 2, 3];
+		arr[1] = getGreeting;		// arr is now [1, function getGreeting(), 2]
+		arr[1]();			// "Hello, World!"
+
+	If you try to add parentheses to a value that is not a function, you will get an error.  For example, "whoops"() will result in the
+	error
+	'TypeError': "whoops" is not a function.
+
+
+### Function Arguments
+	
+	-How about getting information into them? The primary mechanism to pass information to a function call is 'function arguments'
+	(sometimes called 'parameters').  Arguments are like variables that don't exist until the function is called. Let's consider a 
+	function that takes two numeric arguments and returns the average of those numbers:
+	
+		function avg(a, b) {
+			return (a + b)/2;
+		}
+	
+	In this function declaration, a and b are called 'formal arguments'.  When a function is called, formal arguments receive values and
+	become 'actual arguments'.
+		
+		avg(5, 10);	// 7.5
+
+	In this example, the formal arguments a and b receive the values 5 and 10, and become actual arguments (which are very much like
+	variables, but specific to the function body).
+
+	One thing that beginners often stumble over is that the arguments 'exist only in the function', even if they have same name as
+	variables outside of the function.  Consider:
+
+		const a = 5, b =10;
+		avg(a, b);
+
+
+	The variables 'a' and 'b' here are separate, dinstinct variables from the 'arguments' 'a' and 'b' in the function 'avg', evn though
+	they share the same name.  When you call a function, the function arguments receive the 'values' that you pass in, not the variables
+	themselves.  Consider the following code:
+
+		function f(x) {
+			console.log('inside f: x=${x}');
+			x = 5;
+			console.log('inside f: x=${x} (after assignment)');
+		}
+		
+		let x = 3;
+		console.log('before calling f: x=${x}');
+		f(x);
+		console.log('after calling f: x=${x}');
+
+	If you run this example, you will see:
+	
+		before calling f: x = 3
+		inside f: x = 3
+		inside f: x=5 (after assignment)
+		after calling f: x=3
+
+	The important takeaway here is that assigning a value to x inside the function doesn't affect the variable 'x' that's outside 
+	the function; that's because they're two distinct entities that happen to have the same name.
+
+	Whenever we assign to an argument inside a function, there will be no effect on any variables outside of the function.  It is, 
+	however, possible to modify an 'object type' in a function in such a way that the object itself changes, which will be visible 
+	outside of the function:
+
+		function f(o) {
+			o.message = 'set in f (previous value: '${o.message}')`;
+		}
+		let o = {
+			message: "initial value"
+		};
+		console.log(`before calling f: o.message="${o.message}"`);
+		f(o);
+		console.log(`after calling f: o.message="${o.message}"`); 
+ 
