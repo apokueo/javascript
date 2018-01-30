@@ -1,0 +1,33 @@
+                          <h1> Functions </h1>
+
+    A function is a self-contained collection of statements that run as a single unit once called upon or declaration.
+
+    ~ Return values
+
+    calling a function is an expression. And using the return keyword will immediately terminate the function and return the specified value.
+
+    ex. 1
+    function getGreeting() {
+      return "hello world!"
+    };
+
+    getGreeting();
+
+
+              <h2> Calling verses Referencing </h2>
+
+    Using parenthesis after the function identifier(name) you can call the function to execute.
+    without using the parenthesis you are just referring back to the function not executing it.
+
+    getGreeting(); // "hello world!"
+    getGreeting;  // getGreeting()
+
+    calling and referencing can have their benefits.
+
+    for example. // storing function in a new variable name
+
+    let f = getGreeting() {
+      return "hello world!"
+    }
+
+    f();     

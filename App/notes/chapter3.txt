@@ -61,10 +61,10 @@
     sixPrimitives = Numbers, String, Boolean, Null, Undefined, Symbol
 
     //objects can be used to construct custom data types
-    objects = Arrat, Date, RegExp, Map and WeakMap, Set and WeakSet
+    objects = Array, Date, RegExp, Map and WeakMap, Set and WeakSet
 
 
-    JavaScript approximates real numbers through a fromat know as IEEE-764 double-precision floating point
+    JavaScript approximates real numbers through a format know as IEEE-764 double-precision floating point
 
     ~ Numerical literals
 
@@ -76,7 +76,7 @@
 
     USEFUL PROPERTIES FOR NUMBER OBJECTS
 
-    const small = Number.EPSILON; //the smallest value that can be added to 1 to get a distinct number larger than 1 apporx. 2.2e-16
+    const small = Number.EPSILON; //the smallest value that can be added to 1 to get a distinct number larger than 1 approx. 2.2e-16
 
     const bigInt = Number.MAX_SAFE_INTIGER; // the largest representable integer
     const max = Number.MAX_VALUE; // largest represented number
