@@ -132,4 +132,110 @@
 		console.log(`before calling f: o.message="${o.message}"`);
 		f(o);
 		console.log(`after calling f: o.message="${o.message}"`); 
+
+	This results in the following output:
+
+		before calling f: o.message="initial value"
+		after calling f: o.message="set in f (previous value: 'initial value')"
+
+	In this example, we see that 'f' modified  'o' within the function, and those changes affected the object 'o' outside of
+	the function.  This highlights the key difference between primitives and objects. Primitives can't be modified (we can change the
+	value of a primitive variable, but the primitive 'value' itself doesn't change).  Objects can be modified.
+	
+	The 'o' inside the function is separate and distinct from the 'o' outside of the function, but they both 'refer to the same object.
+	We can see that difference again with assignment:
+		
+		function f(o) {
+			o.message = "set in f";
+			o = {
+				message: "new object!"
+			};
+			console.log(`inside f: o.message="${o.message}" (after assignment)`);
+		}
+		let o = {
+			message: 'initial value'
+		};
+		console.log(`before calling f: o.message="${o.message}"`);
+		f(o);
+		console.log(`after calling f: o.message="${o.message}"`);
  
+	The key to understanding what's going on here is understanding that the 'argument' 'o' (inside the function) is different than
+	the variable 'o' (outside the function).  When 'f' is called, both point to the same object, but when 'o' is assigned inside 'f',
+	it points to a 'new, distinct' object.  The 'o' outside the function still points to the original object.
+	
+	Primitives in JavaScript are considered 'value types' in computer science parlance, because when they are passed around, the value is
+	'copied'. Objects are called 'reference types' because when they are passed around, both variables refer to the 'same object' 
+	(that is, they both hold a reference to the same object).
+
+
+### Do Arguments Make the Function?
+
+	In many languages, a function's 'signature' includes its arguments. For example, in C, f() (no arguments) is a different 
+	function than f(x) (one argument), which is a different function than f(x, y)(two arguments). JavaScript makes no such distinction,
+	and when you have a function named f, you can call it with 0 or 1 or 10 arguments, and you're calling the same function.
+
+	The implication of this is that you can call any function with any number of arguments. Failing to provide arguments, will 
+	implicitly receive the value 'undefined:
+			
+			function f(x) {
+				return `in f: x=${x}`;
+			}
+			f();		// "in f: x=undefined"
+
+
+### Destructuring Arguments
+		
+		Consider destructuring an object into individual variables:
+	
+			function getSentence({ subject, verb, object}) {
+				return `${subject} ${verb} ${object}`;
+			}
+
+			const o = {
+				subject: "I",
+				verb: "love",
+				object: "JavaScript",
+			};
+			
+			getSentence(o);		// "I love JavaScript"
+
+		You can also destructure arrays:
+
+			function getSentence([ subject, verb, object]) {
+				return `${subject} ${verb} ${object}`;
+			}
+
+			const arr = [ "I", "love", "JavaScript" ];
+			getSentence(arr);		// "I love JavaScript"
+
+		Finally, you can use the spread operator(...) to collect any additional arguments:
+
+			function addPrefix(prefix, ...words) {
+				// we will learn a better way to do this later!
+				const prefixedWords = [];
+				for (let i=0; i<words.length; i++) {
+					prefixedWords[i] = prefix + words [i];
+				}
+				return prefixed Words;
+			}
+
+			addPrefix("con", "verse", "vex"); 	// ["converse", "convex"]
+
+	(Note- that if you use the spread operator in a function declaration, it 'must be the last argument'.  If you put 
+	arguments after it, JavaScript wouldn't have a reasonable way to distinguish between what should go in the spread argument
+	and what should go in the remaining arguments.
+
+	-(Destructuring:  For more complex assignment, the destructuring assignment syntax is a JavaScript expression that makes it possibleto extract data from arrays or objects using a syntax that mirrors
+the construction of array and object literals.
+
+	var foo = ['one', 'two', 'three'];
+
+	// without destructuring
+	var one   = foo[0];
+	var two   = foo[1];
+	var three = foo[2];
+
+	// with destructuring
+	var [one, two, three] = foo;
+
+
