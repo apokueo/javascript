@@ -1,0 +1,114 @@
+### Scopes
+
+	- Chapter 7 is on the subject called Scopes.
+
+	-Scopes determines when and where variables, constants, and arguments are considered to be defined.  
+
+### Scope Versus Existence
+	
+	-It's intuitively obvious that if a variable doesn't exist, it's not in scope.  That is, variables that have not yet been
+	declared, or variable that have ceased to exist because  a function exits, are clearly not in scope.
+
+	-If a variable is not in scope, does that mean it doesn't exist? Not necessarily, and this is where we must make a 
+	distinction between 'scope', and 'existence'.
+	
+	-Scope (or 'visibility') refers to the identifiers that are currently visible and accessible by the currently 
+	executing part of the program (called the 'execution context').  Existence refers to identifiers that hold something
+	for which memory has been allocated (reserved).
+	
+	-When something ceases to exist, JavaScript doesn't necessarily reclaim the memory right away: it simply notes that 
+	the item no longer needs to be kept around, and the memory is periodically reclaimed in a process called garbage collection.
+
+
+### Lexical Versus Dynamic Scoping
+
+	-When you look at the source code for a program, you are looking at its 'lexical structure. When the program actually runs,
+	 execution can jump around.  
+	
+		function f1() {
+			console.log('one');
+		}
+		function f2() {
+			console.log('two');
+		}
+		
+		f2();
+		f1();
+		f2();
+
+	-Lexically, this program is simply a series of statements that we generally read from top from bottom.  However, when we run
+	this program, execution jumps around: first to the body of function f2, then to the body of function f1 (even though it's 
+	defined before f2), then back to the body of function f2.
+
+	Scoping in JavaScript is 'lexical', meaning we can determine what variables are in scope simply by looking at the source code.
+	That's not to say that scope is always immediately 'obvious' from the source code.
+	
+	lexical scoping means whatever variable are in scope where you 'define' a function from (as opposed to when you 'call' it) are in 
+	scope in the function. Example:
+		
+		const x = 3;
+		function f() {
+			console.log(x); // this will work
+			console.log(y):	// this will cannot a crash
+		}
+
+		const y = 3;
+		f();
+	
+	The variable x exists when we define the function 'f', but 'y' doesn't.  Then we declare 'y' and call 'f', and see that x
+	is in scope the body of 'f' when it's called, but 'y' isn't.  This is an example of lexical scoping: the function 'f' has access
+	to the identifiers that were available when it was 'defined', not when it was 'called'.
+	
+	-Lexical scoping in JavaScript applies to 'global scope', 'block scope', and 'function scope'.
+
+
+### Global Scope
+
+	Scope is heirarchical, and there has to be something at the base of the tree: the scope that you're implicitly in when you start a
+	program.  This is called 'global scope'. When a JavaScript program starts - before any functions are called - it is executing in 
+	global scope. The implication is, then, that anything you declare in global scope will be available to all scopes in your program.
+
+	-Let's consider a simple example: keeping track of information about a user.  Your program keeps track of a user's name and age, and
+	there are some functions that operate on that informaion.  One way to do this is with global variables:
+		
+		let name = "Irena"; 	// global
+		let age = 25;		// global
+
+		function greet() {
+			console.log("Hello, ${name}!`);
+		}
+		function getBirthYear() {
+			return new Date().getFullYear() - age;
+		}
+
+	-The problem with this approach is that our functions are highly dependent on the context (or scope) that they're called from.
+	Any function - anywhere in your entire program - could change the value of 'name'(accidentally or intentionally).  And "name" and 
+	"age" are generic names that might reasonably be used elsewhere, for other reasons.  Because 'greet' and 'getBirthYear' rely on global 		variables, they are basically relying on the rest of the program using 'name' and 'age' correctly.
+
+	-A better approach would be to put user information in a single object:
+
+		let user = {
+			name = "Irena",
+			age = 25,
+		};
+		
+		function greet() {
+			console.log('Hello, ${user.name}!`);
+		}
+		function getBirthYear() {
+			return new Date().getFullYear() = user.age;
+		}
+
+
+### Block Scope
+
+	-'let' and 'const' declare identifiers in what's known as 'block scope'.  You'll recall from Chapter 5 that a block is a list of 
+	statements surrounded by curly braces.  Block scope refers to identifiers that are only in scope within the block:
+
+		console.log('before block');
+		{
+			console.log('inside block');
+			const x = 3;
+			console.log(x):				// logs 3
+		}
+		console.log('outside block; x=${x}`);
