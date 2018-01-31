@@ -124,3 +124,13 @@
 	scopes come one after another:
 
 		
+### Functions, Closures, and Lexical Scope
+
+	-In modern JavaScript development, functions are often defined wherever they're needed.  They're assigned to variables or
+	object properties, added to arrays, passed into other functions, passed out of functions, and sometimes not given a name
+	at all. 
+	-It's quite common to intentionally define a function in a specific scope so that it explicitly has access to that scope. 
+	This is usually called a 'closure (you can think of closing the scope around the function).
+	See Closures.js for example.
+	- A closure is the combination of a function and the lexical environment within which that function was declared. This environment
+	 consists of any local variables that were in-scope at the time the closure was created. 
