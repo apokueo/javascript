@@ -112,3 +112,15 @@
 			console.log(x):				// logs 3
 		}
 		console.log('outside block; x=${x}`);
+
+	Here we have a 'standalone block': usually a block is part of a control flow statement such as 'if' or 'for', but it's valid
+	syntax to have a block on its own.  Inside the block, x is defined, and as soon as we leave the block, 'x' goes out of scope, and 
+	is considered undefined.
+
+	
+### Variable Masking
+
+	-A common sourc of confusion is variables or constants with the same name in differnt scopes.  It's relatively straightforward when
+	scopes come one after another:
+
+		
