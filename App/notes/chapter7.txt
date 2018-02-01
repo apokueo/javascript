@@ -1,0 +1,169 @@
+                            <h1> Chapter 7: Scope </h1>
+
+      Scope determines when and where variables, constants, and arguments are considered to be defined.
+
+      note on scope: The formal arguments of the function body don't exist until the function is called .
+
+                                  Lexical vs Dynamic Scoping
+
+
+      Scoping in Javascript is Lexical. it applies to all 3 scopes.
+      global scope, block scope, and function scope.
+
+
+      GLOBAL SCOPE - is hierarchal. When a JavaScript program starts it before any functions are called, it executes in global scope .
+
+      let user = {
+        name = "Jesse",
+        age = 25,
+      };
+
+      function greet() {
+      console.log(`Hello, ${user.name}!`);
+      };
+
+      function getBirthYear() {
+        return new Date().getFullYear() - user.age;
+      };
+
+
+    simple representation of having information block and function scoped.
+    we can condense this code even more simply by applying user as an argument for the functions.
+
+    function greet(user) {
+    console.log(`Hello, ${user.name}`);
+    }
+
+    function getBirthYear(user) {
+    return new Date().getFullYear() - user.age;
+    }
+
+
+    These above function are not dependent on global scope.
+
+
+                            VARIABLE MASKING
+
+
+    A problem arises when having vars or const with the same name in different scopes. Nested scope is how we solve this.
+
+    {
+      let x = "blue";
+      console.log(x); = "blue"
+      {
+        let x = 3;
+        console.log(x); = 3
+      }
+      console.log(x); = "blue"; as expected because I am in the scope of that x
+    }
+
+
+                          Functions, Closures, and Lexical Scope
+
+
+    Example of closure or intentionally define a function in a specific scope so that it explicitly has access to that scope.
+
+    let globalFunc; // undefined global function
+    {
+      let blockVar = 'a'; // block scoped var
+      globalFunc = function() {
+        console.log(blockVar);
+      }
+    }
+    globalFunc();  // returns a
+
+
+    Defining a function within a closure can affect the closure's lifetime ; it also allows us to access the things inside the block scope by assinging the return to a new identifier.
+
+    let library;
+    {
+      let journal = { note: "safe"};
+      library = function() {
+      return journal;
+      }
+    }
+    let journalRef = library();
+    journalRef.note = "not so safe after all."
+
+
+
+                            IIFE or Immediately Invoked Function Expressions
+
+
+
+    IIFE looks like this :
+      (function() {
+        //IIFE BODY
+      })();
+
+
+      or
+
+
+    const message = (function() {
+      const secret = "Secret";
+      return `this is ${secret.length} characters long.`;
+    })();
+    console.log(message)
+
+    // common to return arrays, objects, and functions
+
+
+
+
+                          Function Scope and Hoisting
+
+
+
+    Var keyword can be referenced before they are declared. This is due to Javascripts hoisting mechanism.
+
+    if(x !== 3) {
+      var y = 5;
+      if( y === 5) {
+        var x = 3;
+      }
+    }
+    if(x == 3) {
+      console.log(y);
+    }
+
+
+    when javascript looks at this code it will hoist x and y var to the top
+    these are not recommended practices, but can help in certain instances.
+
+
+                            Function Hoisting
+
+
+    function declarations are hoisted to the top as well.
+
+    f();
+    function f() {
+      console.log('f');
+    }
+
+    note: that function expressions that are assigned to variable identifiers are not hoisted.
+
+    f();
+    let f = function() {
+      console.log(f);
+    }
+
+
+                            Temporal Dead Zone
+
+    cannot access variable before it is defined. Specificly when assigning a variable with the let or const keyword as you can not access these varibles before they are created(see note in above example.)
+
+
+
+                            Strict Mode
+
+
+    if you wanted to specify the strict mode on just one function you can do so.
+    generally the use of strict in all documents is not advised as it can cause issues with some code you might write.
+
+    let strict = (function() {
+      'use strict'
+
+      //strict mode content of function body
+    })();
