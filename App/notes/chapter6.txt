@@ -30,4 +30,323 @@
       return "hello world!"
     }
 
-    f();     
+    f(); // "hello world!"
+
+
+    <h2> Function Arguments </h2>
+
+    primary mechanism to pass information to a function.
+    Using argument you can pass that information.
+
+    <h2> Function Expressions and Anonymous Functions </h2>
+
+    anonymous functions don;t have set identifiers.
+
+    <h2> Arrow Notation </h2>
+
+    new es6 that allows for use to use =>(fat arrow syntax) to
+    1  omit the word function
+    2  if function takes single argument then you can omit the parenthesis
+    3  if the function body is a single expression then you can omit the curly braces and the return statement.
+
+
+
+
+                          CODE BELOW 
+
+                          function getGreeting() {
+                        	return console.log("hello world!");;
+                        }
+
+                        getGreeting();
+                        getGreeting; // returns getGreeting()
+
+                        const f = getGreeting; // renaming function
+                        f();
+
+                        const o = {}; //creating empty object
+                        o.f = getGreeting; // reassigning o.f = getGretting
+                        o.f(); // calling, exucting function
+
+                        const arr = [1, 2, 3];
+                        arr[1] = getGreeting;
+                        arr[1]();
+                        					// arr = [1, getGreeting, 3];
+
+                        let signal = function() {
+
+                        	for(let i = 0; i < arr.length; i++) {
+                        		const arr = [1, 2, 3];
+                        		arr[1] = getGreeting;
+                        		arr[1]();
+                        	console.log(arr[i]);
+
+                        	};
+
+                        }
+                        signal();
+                        console.log(signal()); // ??? wonder why its undefined when its a identifer to a (insert type) function. How do I access this? what operator do  I need?
+
+
+                        function avg(a, b) {
+
+
+                        	return (a + b)/2;
+
+                        }
+                        	console.log(avg(5,10));
+
+
+                        /// Notes on how placements of variables is important to the flow of the content in the functions.
+                        function fs(x) {
+                        	console.log(`inside fs: x=${x}`);
+                        	var x = 5;  // side note if this is set to let it will throw an error saying x has already been defined outside of the function.
+                        	console.log(`inside fs: x=${x}  : after argument`);
+                        }
+                        let x = 3;
+                        console.log(`before calling fs: x=${x}`);
+                        fs(x);
+                        console.log(`after calling fs: x=${x}`);
+
+
+                        /*
+                        function somaBitch(o) {
+                        	o.message = `set in f (previous value: '${o.message}')`;
+                        }
+                        let o = {
+                        	message: "initial value "
+                        };
+                        console.log(`before calling f: o.message="${o.message"`);
+                        somaBitch(o);
+                        console.log(`after calling f:  o.message "${o.message"`);
+                        */
+
+                        //result is supposed to be
+                        //before calling f: o.message ="initial value"
+                        //after calling f: o.message = "set in f (previous value: 'initial value')"
+
+                        function fucktion(upressed) {
+                        	upressed.message = "Praise them hips"
+                        	upressed = {
+                        		message: "new hips!"
+                        	};
+                        	console.log(`inside f: upressed.message="${upressed.message}" (after assignemnt)`);
+                        }
+                        	let upressed = {
+                        		message: 'initial value'
+                        	};
+                        	console.log(`before calling f: upressed.message="${upressed.message}"`);
+                        	fucktion(upressed);
+                        	console.log(`after calling fucktion: upressed.message=${upressed.message}`);
+
+                        	// the key to understand whats going on above is that
+                        	/*
+                        		the argument inside the function is different than
+                        		the variable upressed outside of the function.
+                        		Also if you fail to provide arguments, they will implicitly receive the value udnefined.
+
+                        	*/
+                        	function cat(SlyCat) {
+                        		return `in f: x=${SlyCat}`
+                        	}
+                        	console.log(cat()); // returns undefined as SlyCat hasnt been defined.
+
+                        	//  <h2> Destructuring Arguments </h2>
+
+                        	function getSentence({ subject, verb, object }) {
+                        		return `${subject}${verb}${object}`;
+                        	}
+
+                        	const otherObject = {
+                        		subject: "I ",
+                        		verb: "love ",
+                        		object: "Javascript...sort of.jk",
+                        	};
+                        	console.log(getSentence(otherObject));
+
+                        	// as with destructruring assignment, propert names must be identifier strings, and a variable that doesn't have a matching property in the incoming object will receive the value undefined'
+
+                        	// destructive array
+
+                        	function getNewSentence([ subject, verb, object ]) {
+                        		return `${subject}${verb}${object}`;
+                        	}
+                        	const array = [ "I ", "Love ", "YavaScript "];
+                        	console.log(getNewSentence(array)); // how to log contents of array by making function with array arguments and the returning them. after we assign the arguments to hold indexed values.
+
+                        	// Spread Oeprator(...) to collect any additional arguments
+                        	function addPrefix(prefix, ...words) {
+                        		// ** wil learn a better way later **
+                        		const prefixedWords = [];
+                        		for(let i=0; i<words.length; i++) {
+                        			prefixedWords[i] = prefix + words[i]
+                        		}
+                        		return prefixedWords;
+                        	}
+
+                        	console.log(addPrefix("con", "verse", "vex"));
+                        	// allows you to add content that may be relative or similar concatentating the first argument with subsequent arguments
+
+                        	// Default Arguments
+                        	// specify default values for arguments.
+
+                        	function values(a, b = "default", c = 3) {
+                        		return `${a}, ${b}, ${c}`;
+                        	}
+                        	console.log(values(5, 6, 7));
+                        	console.log(values(5, 6));
+                        	console.log(values(5));
+                        	console.log(values());
+
+                        	// Functions as propeties of objects
+                        	// function inside objects
+                        	const option = {
+                        		lever1Checked: false,
+                        		lever2Checked: true,
+                        		lever3Checked: function() {
+
+                        			return false;
+
+                        		},
+                        	}
+                        		console.log(option.lever3Checked());
+                        		// I noticed when you change the return to either string or false boolean the console log doesnt pick up that its a string.I would have to typeOF
+
+                        		// THIS Keyword
+
+                        		const human = {
+                        			name: "nick",
+                        			speak() { return `My name is ${this.name}`;},
+                        		}
+                        		console.log(human.speak());
+
+                        		// assigning function to variable
+                        		const speak = human.speak;
+                        		speak === human.speak;
+                        		console.log(speak());
+                        		// Javascript didnt recognize that speak property in human object was declared and so it is undefined outside of the human scoped object
+
+
+                        	/*const person = {
+                        		name: 'Nick',
+                        		greetBackwards: function() {
+                        			function getReversed() {
+                        				let nameBackwards = '';
+                        				for(let i=this.name.length-1; i>=0; i--) {
+                        					nameBackwards += this.name[i];
+                        				}
+                        				return nameBackwards;
+                        			}
+                        			return `${getReversed()} si eman ym ,olloH`
+                        		},
+                        	}
+                        	console.log(person.greetBackwards());
+                        	*/
+
+                        	/*
+                        		nested function accessing values.
+                        		current only shows the function identifier.
+                        	*/
+                        	const personFixed = {
+                        		name: 'Nick',
+                        		greetBackwards: function() {
+                        			const self = this;
+                        			function getReversed() {
+                        				let nameBackwards = '';
+                        				for(let i= self.name.length -1; i>=0; i--) {
+                        					nameBackwards += self.name[i];
+                        				}
+                        				return nameBackwards;
+                        			}
+                        			return console.log(`${getReversed()} si eman ym ,olloH`)
+                        		},
+                        	};
+                        	console.log(personFixed.greetBackwards());
+
+                        	//example of why someone would want to have a function identifier
+
+                        	const ghost = function hallow(spook) {
+                        		if(spook) console.log(`spooked out!`);
+                        		hallow(true);
+                        	};
+                        	// ghost(false);
+
+                        	// we use ghost to access the function hallow.
+
+                        	const f1 = function() { return 'hello';}
+                        	//or
+                        	const f1new = () => "hello!";
+                        	//or
+                        	const f2 = function(name) { return `Hello, ${name}`};
+                        	//or
+                        	const f2new = name = `Hello, ${this.name}`;
+                        	//or
+                        	const f3 = function(a, b) { return a + b };
+                        	//or
+                        	const f3new = (a, b) => a + b;
+
+                        	// Call, apply , and Bind
+
+                        	const bruce = { name: "Bruce"};
+                        	const Madeline = { name: "Madeline"};
+
+                        	function greet() {
+                        		return `Hello ${this.name}`;
+                        	}
+
+                        	console.log(greet());
+                        	console.log(greet.call(bruce));
+                        	console.log(greet.call(Madeline));
+
+                        	// you can assign this keyword to the first argument of a call.
+
+                        	function update(birthYear, occupation) {
+                        		this.birthYear = birthYear;
+                        		this.occupation = occupation;
+                        	}
+
+                        	update.call(bruce, 1990, 'pimp');
+                        	update.call(Madeline, 1987, "call girl"); // assignment through function adding
+
+                        	console.log(bruce);
+                        	console.log(Madeline);
+
+                        	// apply is essentaily the same as call, but can handle function arguments as well.
+
+                        	update.apply(bruce, [1995, 'actor']);
+                        	update.apply(Madeline, [1918, 'writer']);
+
+                        	console.log(bruce);
+                        	console.log(Madeline);
+
+
+                         // Example of apply
+
+                         	const arrayNumbers = [2, 3, 7, 10, 25, 85];
+                        console.log(Math.min.apply(null, arrayNumbers));
+                        console.log(Math.max.apply(null, arrayNumbers));
+
+                        //note we simpy null for the value of this. Math. doesnt use this keyword.
+
+                        const newBruce = [1940, "martial artist"];
+                        update.call(bruce, ...newBruce);
+
+                        console.log(newBruce);
+                        console.log(bruce); // using spread operator it applys newBruce to bruce
+
+                        console.log(Math.min(...arrayNumbers)); // doesnt matter if we use spread to call function directly.
+                        console.log(Math.max(...arrayNumbers));
+
+                        // Bind keyword allows you to set a perminate value to the this. it cannot be changed regarless of the call, apply, or any other bind once set.
+
+                        const updateBruce = update.bind(bruce);
+
+                        updateBruce(1904, "actor");
+                        updateBruce.call(Madeline, 1274, "king");
+
+                        console.log(updateBruce);
+                        console.log(bruce);
+
+                        // you can finally add parameters to bind
+                        //ex. const updateBruce1949 = update.bind(bruce, 1949);
+                        // updateBruce1949("singer, songwriter");
