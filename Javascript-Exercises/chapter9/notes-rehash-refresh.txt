@@ -10,3 +10,15 @@
 		objects -> are not ordered and may present themselves in random ways s
 
 * really frustrated with the authors 'jest' at the moment.
+
+Property Enumeration (..sigh)
+
+Enumeration -> list the contents of a container (array) # use arrays 
+
+Objects do not support (property enumeration)
+
+for..in 
+* traditional way to enumerate the properties of an object is for..in (consider this example):
+	The object has a string properties and lone symbol property 
+
+See exercise: for-in.js
