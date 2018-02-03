@@ -2,3 +2,11 @@
 
 - The author posits that "Like arrays, objects in Javascripts are containers [specifically::called: aggregate or complex data types] " 
 - In spite of desiring to vomit over this, I'll have to press because the topic is one that any serious developer has to stomach thru
+
+	1. Arrays contain values (duh), indexed numerically (duh)
+		objects -> properties indexed by 'string' or 'symbol Symbol()' 
+	
+	2. Arrays are 'ordered' (arr[0] always comes before arr[1]; 
+		objects -> are not ordered and may present themselves in random ways s
+
+* really frustrated with the authors 'jest' at the moment.
