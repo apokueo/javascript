@@ -1,12 +1,13 @@
 #include <stdio.h>
 
-/* This is a comment. */
+/* This is a comment */ 
 int main(int argc, char *argv[])
 {
-    int distance = 100;
 
-    // this is also a comment
-    printf("You are %d miles away.\n", distance);
+    int distance = 100; 
 
-    return 0;
+    // this is also a comment 
+    printf("You are %d miles away.\n", distance); 
+
+    return 0; 
 }
