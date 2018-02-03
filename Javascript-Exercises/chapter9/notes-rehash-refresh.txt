@@ -1,0 +1,4 @@
+// This is my second time going through this chapter 
+
+- The author posits that "Like arrays, objects in Javascripts are containers [specifically::called: aggregate or complex data types] " 
+- In spite of desiring to vomit over this, I'll have to press because the topic is one that any serious developer has to stomach thru
