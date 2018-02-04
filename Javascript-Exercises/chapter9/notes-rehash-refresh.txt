@@ -27,4 +27,6 @@ var obj = {
 	} 
 
 
-
+&this 
+	"to refer to the instance a method is was invoked on" 
+	"the this keyword is a placeholder for a specific instance, which will be known by the time the method is invoked" 
