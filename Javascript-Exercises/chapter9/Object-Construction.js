@@ -14,8 +14,8 @@ class Car {
 const car1 = new Car("Tesla", "Model S"); 
 const car2 = new Car("Mazda", "3i");
 
-console.log(car1.userGear);
-console.log(car2.userGear);
+console.log(car1.userGears);
+console.log(car2.userGears);
 
 console.log(car1 instanceof Car); 
 console.log(car2 instanceof Car); 
