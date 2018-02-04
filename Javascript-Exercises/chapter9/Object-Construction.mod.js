@@ -1,0 +1,29 @@
+class Car {
+    constructor(make, model) {
+        this.make = make; 
+        this.model = model;
+        this._userGears = ['P', 'N', 'R', 'D'];
+        this._userGear = this._userGears[0]; 
+    }
+	
+
+     get userGear() { return this._userGear; } 
+	set userGear(value) {
+		if(this._userGears.indexOf(value) < 0)
+			throw new Error(`Invalid gear: ${value}`); 
+		this._userGear = value;
+	} 
+
+	shift(gear) { this.userGear = gear; }
+    }
+}
+
+const car1 = new Car("Tesla", "Model S"); 
+const car2 = new Car("Mazda", "3i");
+
+console.log(car1.userGears);
+console.log(car2.userGears);
+
+console.log(car1 instanceof Car); 
+console.log(car2 instanceof Car); 
+
