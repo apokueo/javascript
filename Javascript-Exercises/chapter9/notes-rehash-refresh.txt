@@ -11,14 +11,20 @@
 
 * really frustrated with the authors 'jest' at the moment.
 
-Property Enumeration (..sigh)
+Array
 
-Enumeration -> list the contents of a container (array) # use arrays 
+const arr = [1, 2, 3, 4, 5];
 
-Objects do not support (property enumeration)
 
-for..in 
-* traditional way to enumerate the properties of an object is for..in (consider this example):
-	The object has a string properties and lone symbol property 
+Objects 
 
-See exercise: for-in.js
+var obj = {
+	fname: name, 
+	age: age,
+	security = function () {
+		return "something evil this way comes" 
+		},
+	} 
+
+
+
