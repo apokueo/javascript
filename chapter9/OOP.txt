@@ -1,0 +1,18 @@
+//Objects and Object-Oriented Programming
+
+	//Like arrays, object in JavaScript are containers (also called aggregate or complex data types. 
+	// Objects have 2 primary differences from arrays:
+
+		
+
+// for...in
+
+	const SYM = Symbol();
+
+	const o = { a: 1, b: 2, c: 3, [SYM]: 4};
+
+	for(let prop in 0) {
+		if(!o.hasOwnProperty(prop)) continue;
+		console.log(`${prop}: ${o[prop]}`);
+
+	}
