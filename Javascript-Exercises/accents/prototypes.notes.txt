@@ -1,0 +1,10 @@
+Prototypes 
+	* Javascript does have inheritance, although this just one way to reuse code! 
+	* Inheritance can be accomplished in various ways, which is usually by making use of prototypes
+
+	Prototypes are objects (no surprise) and every function you create automatically gets prototype property that points 
+	to a blank object. The object is identical to an object created with an object literal or object constructor (Object()), 
+	except the constructor property points to the function you create and not to the built-in Object(). 
+
+	You can add members to this blank object and later have other objects inherit from this object and use its properties as
+	their own. 
