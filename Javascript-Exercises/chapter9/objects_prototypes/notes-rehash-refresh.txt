@@ -30,3 +30,16 @@ var obj = {
 &this 
 	"to refer to the instance a method is was invoked on" 
 	"the this keyword is a placeholder for a specific instance, which will be known by the time the method is invoked" 
+
+
+
+The Prototype Object 
+	- Will have default properties and methods
+	- All other data types will inherit from the prototype 
+		Array, Function, Number, String, Boolean -> Default properties and methods inherited from Object
+
+		Object.hasOwnProperty() 
+
+		- SO when you create any primitive you are in fact creating on the existing object (thus an instance) of the object:
+			Array Instance, Function Instance, Number Instance, String Instance, Boolean Instance -> Default properties and methods 
+			::inherited from Object AND its constructor 
