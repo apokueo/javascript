@@ -1,0 +1,60 @@
+HTML -> describes the content of the browser 
+
+CSS -> Presentation layer; defines styles
+
+Javascript -> Adds interactivity to the webpage
+
+
+HTML5 -> version 5 (latest) | more support for media (video/audio) -> obseleting flash
+
+html5 doctor
+mdn
+w3c 
+
+Elements -> components that define page objects (paragraphs, links, etc)
+
+Tags -> defines the elements with angled brackets wrapped around the tag name and usually come in pairs
+
+<tagname> content goes here </tagname> 
+<p> This is a paragraph </p> 
+
+
+Void Elements -> don't have closing tags and don't wrap any content because they are the content
+<area>
+<base>
+<br>
+<col>
+<embed>
+<hr>
+<img>
+<input>
+<keygen>
+<link>
+<menuitem>
+<meta>
+<param>
+<source>
+<track>
+<wbr> 
+
+w3.org/TR/html51/syntax 
+
+<hr> Horizontal rule 
+<img> requires 2 attributes 
+
+Attributes -> provide additional information (location of image file) | values vary depending on the attribute
+
+DOM -> tree like structure that is created when creating html. Each element is an 'object' 
+
+Elements are often nested in the DOM
+	Tags are written inside of other tags 
+
+	Parent -> Children -> Siblings 
+
+Use identation to make markup readable
+
+UserAgent Style Sheets (default style sheets) :: use devtools to inspect this
+
+Default Browser Styles - usually zeroed out with margin: 0; padding: 0; 
+
+Download and test in multiple browsers -> check out -> browsehappy.com | gs.statcounter.com (usage) | caniuse.com/usage-table | 
