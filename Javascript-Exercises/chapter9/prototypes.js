@@ -5,4 +5,10 @@
 all instances of a given class share the same prototype or method **/ 
 
 
-const ca
+function summer(x,y) {
+	result = x + y
+	console.log(result);
+}
+
+
+sum(4,8); 
