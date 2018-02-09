@@ -1,20 +1,17 @@
-For completeness, at the implementation level things are a little more complex
-
-Prototype Chains 
-
 var personA = {
 	name: 'Ifa', age: 29
 };
 
-personA.name; // logs 'Ifa' 
+console.log(personA.name); // logs 'Ifa' 
 
 var personB = Object.create(personA); 
-personB.name = 'Ori'; 
+
+console.log(personB.name = 'Ori'); 
 personB.age; 
 personB.gender; 
 personB.hasOwnProperty(); // function sought for and only found in Object and returns function() {..}; 
 
-Classes/Prototype Inheritance 
+// Classes/Prototype Inheritance 
 
 var myClass = function(name, age) {
 	this.name = name; 
@@ -23,3 +20,5 @@ var myClass = function(name, age) {
 
 var instance1 = new myClass("Ptah", 30); 
 var instance2 = new myClass("Amon", 40); 
+
+console.log(instance1, instance2); 
