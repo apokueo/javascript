@@ -58,3 +58,19 @@ UserAgent Style Sheets (default style sheets) :: use devtools to inspect this
 Default Browser Styles - usually zeroed out with margin: 0; padding: 0; 
 
 Download and test in multiple browsers -> check out -> browsehappy.com | gs.statcounter.com (usage) | caniuse.com/usage-table | 
+
+// CSS Resources -> 
+
+codrops | typmanus.net  
+mdn | mozilla developer network 
+
+
+
+CSS Selectors 
+
+Type Selectors: 
+	Match by HTML element name 
+	h1 (can be too general) 
+
+	so use Attributes:
+		IDs and Classes
