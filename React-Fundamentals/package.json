@@ -9,7 +9,14 @@
   },
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "react": "^16.2.0"
+  "dependencies": {},
+  "devDependencies": {
+    "babel-loader": "^7.1.2",
+    "babel-preset-es2016": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-scripts": "^1.1.1",
+    "webpack": "^3.11.0"
   }
 }
