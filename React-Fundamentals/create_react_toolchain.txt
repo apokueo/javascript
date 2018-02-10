@@ -1,1 +1,9 @@
 // Create a React Toolchain
+
+Webpack -> bundle applications 
+Babel -> transcompile 
+JSX -> Javascript Extended (html like) 
+
+    caniuse.com
+
+
