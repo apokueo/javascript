@@ -4,29 +4,22 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Dom Scripting</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
-    
+     <script src="document_object_model.js">   
+</script>
 </head>
 <body>
 
-    <h1>DOM Scripting</h1>
-    <p id="result"> Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-        Veritatis dolore ducimus voluptas enim commodi non expedita pariatur atque. 
-        Nulla vitae velit veritatis molestias totam labore exercitationem tenetur magni 
-        cum facilis.
-    </p>
+    <h1 id="title">DOM Scripting</h1>
+    New task: <input type=text" id="task"> 
+
+    <input type="button" value="add" onclick="addTask()"> 
+    <input type="button" value="delete all tasks" onclick="deleteAllTasks()"> 
+
+
+    <h3> Today's Tasks: </h3> 
+    <ul class="taskList"></ul> 
 
 
 
-
-<script src="docobj.js">
-    function updateElement() {
-        var el = document.getElementById("result"), 
-        style = el.style;         
-        
-    }
-    updateElement(); 
-</script>
 </body>
 </html>
