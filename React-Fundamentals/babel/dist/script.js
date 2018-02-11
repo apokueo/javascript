@@ -1,5 +1,7 @@
+"use strict";
+
 if (true) {
-    let x = 4;
+    var _x = 4;
 }
 
 console.log(x);
