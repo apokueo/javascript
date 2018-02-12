@@ -20,6 +20,9 @@ class Car extends Vehicle {
     } 
 } 
 
+class Motorcycle extends Vehicle {
+    
+   } 
 
 const v = new Vehicle() 
 const c = new Car() 
@@ -27,3 +30,8 @@ v.addPassenger('Djehuti')
 v.addPassenger('Auset') 
 console.log(v.passengers)
 c.deployAirbags()
+const m = new Motorcycle() 
+
+console.log(m instanceof Vehicle)
+console.log(m instanceof Motorcycle)
+console.log(m instanceof Car) 
