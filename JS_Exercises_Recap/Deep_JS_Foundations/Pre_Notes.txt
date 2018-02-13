@@ -1,0 +1,5 @@
+// This is a preliminary notation of study.
+// Discussing: Scope & Closures
+//		Object. Protoypes
+//		Lexical 
+
