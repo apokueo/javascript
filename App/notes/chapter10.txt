@@ -1,0 +1,150 @@
+                            MAPS AND SETS
+
+                  A new es6 feature allows for mapping of keys to value with map and set are similar to arrays except that duplicates are not allowed.
+
+                  const u1 = { name: 'Cynthia' };
+    const u2 = { name: 'jackson' };
+    const u3 = { name: 'Franklin' };
+    const u4 = { naem: 'James' };
+
+
+    //create new Map
+    const userRoles = new Map();
+    // assing roles using set.
+
+    userRoles.set(u1, 'User');
+    userRoles.set(u2, 'User');
+    userRoles.set(u3, 'Admin');
+
+    // set is chainable. i.e.
+
+    userRoles
+    	.set(u1, 'User')
+    	.set(u2, 'User')
+    	.set(u3, 'Admin');
+
+    // can also pass array of arrays as constructor
+
+    const userRolesArr = new Map([
+    	[u1, 'User'],
+    	[u2, 'User'],
+    	[u3, 'Admin'],
+
+    ]);
+
+    console.log(userRoles);
+    console.log(userRolesArr);
+
+    // now we can use get to see what the role u2 has. log below
+
+    console.log(userRoles.get(u2)); // User
+
+    // if you call get on a key that isnt mapped it will return undefined.
+
+
+    	// has method
+
+    console.log(userRolesArr.has(u1));
+    console.log(userRolesArr.get(u1)); // User role
+    console.log(userRolesArr.has(u4)); // false no in array
+    console.log(userRolesArr.get(u4)); // undefined
+
+    // IF YOU CALL SET() on a key that is already mapped, its values will be replaced.
+
+    console.log(userRolesArr.get(u1)); // get key
+    userRolesArr.set(u1, 'Admin'); // set new value of key
+    console.log(userRolesArr.get(u1)); // return u1 key with newly assinged value
+
+    // YOU CAN ALSO LOOK AT THE LENGTH USING THE SIZE PROPERTY
+
+    console.log(userRolesArr.size); // 3
+
+    // Using keys() method to get keys ad values() and entries() to get enteries as arrays where first is ket and second is value
+
+    for(let u of userRolesArr.keys())
+    	console.log(u.name);    // Logs Keys
+
+    for(let r of userRolesArr.values())
+    	console.log(r);  // Logs values
+
+    for(let ur of userRolesArr.entries())
+    	console.log(`${ur[0].name}: ${ur[1]}`); // Logs both key/value to display
+
+    for(let [u, r] of userRolesArr.entries()) // Another way to log u and r key/value
+    	console.log(`${u.name}: ${r}`);
+
+    console.log([...userRolesArr.values()]); // spread operator to list values as array instead of iterable object
+
+    // to delete use delete()
+    // userRolesArr.delete(u2); // bye bye u2
+    console.log(userRolesArr.size);
+
+    // you can remove all enteries with the clear() method
+
+    userRolesArr.clear()
+    console.log(userRolesArr.size); // 0
+
+    // WeakMap is similar to map  but requires the key to be an object, the keys are garbage collected, and a cannot be iterated or cleared.
+
+    const SecretHolder = (function() {
+    	const secrets = new WeakMap();
+    	return class {
+    		setSecret(secret) {
+    			secrets.set(this, secret);
+    		}
+    		getSecret() {
+    			return secrets.get(this);
+    		}
+    	}
+    })();
+
+    const a = new SecretHolder();
+    const b = new SecretHolder();
+
+    a.setSecret('secret A');
+    b.setSecret('secret B');
+
+    console.log(a.getSecret());
+    console.log(b.getSecret());
+
+    // NOT SURE I UNDERSTAND HOW THIS IS BOUND IN this INSTANCE.
+
+    				// SETS
+    				// collection of data where duplicates are not allowed.
+
+    const roles = new Set();
+
+    roles.add('User');
+    roles.add('Admin');
+    roles.size;   // like map set also has a size property
+    // if you try and add something that already exist the legnth doesnt change.
+
+    roles.delete('Admin'); // true
+    roles; // Set [ 'User' ]
+    roles.delete('Admin'); // false
+
+
+    //  						WEAK SETS
+
+
+    //		can only contain objects and the objects they contain must be garbage collected.
+
+
+    const naughty = new WeakSet(); // set for naughty kids
+
+    const children = [     // arr of objects with key/value name#: 'name'
+    	{ namel: 'Suzy' },
+    	{ name2: 'Derek'},
+    ];
+
+    naughty.add(children[1]); // adding children
+
+    for(let child of children) {
+    	if(naughty.has(child))
+    		console.log(`Coal for ${child.name}!`);
+    	else {
+    		console.log(`Presents for ${child.name}`);
+    	}
+    }
+
+    // cannot be iterated over
