@@ -152,7 +152,7 @@
 
                             Temporal Dead Zone
 
-    cannot access variable before it is defined. Specificly when assigning a variable with the let or const keyword as you can not access these varibles before they are created(see note in above example.)
+    cannot access variable before it is defined. Specifically when assigning a variable with the let or const keyword as you can not access these variables before they are created(see note in above example.)
 
 
 

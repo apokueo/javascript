@@ -1,0 +1,54 @@
+                          <h1> Arrays and Array processing </h1>
+
+        //array literals
+        const arr1 = [1, 2, 3]; // array of numbers
+        const arr2 = ['one', 2, 'three']; //nonhomogeneous cotains multiple types
+        const arr3 = [[1, 2, 3], ['one', 'kind', ' fluc']]; // array containing arrays
+        const arr4 = [
+        { name: "Nick", type: 'Object', luckyNumbers = [3, 6, 9]},
+        [
+          { name: "SomeName", type: "Object"},
+          { name: "Uname", type: "Object"},
+        ],
+        1,function() { return "array can contain functions too";},
+        "three",
+        ];
+
+
+
+
+        lastIndexOf method vs indexOf
+
+          * indexOf returns the index of the first element it finds that strictly equals to hat you are looking for.
+
+          * lastIndexOf returns the last index that matches what you are looking for
+
+          find Index allows for you to provide a function that determines if elements match
+
+
+          Fundamental Array Operations: map and filter
+
+
+          map transforms the elements of an array.
+          * both map and filter return copies of the array and do not modify the original array.
+
+
+          Combining variables of two different arrays
+
+          const items = ['Widget', 'Gadget'];
+          const prices = [9.95, 29.95];
+          const cart = items.map((x, i) => ({name: x price: prices[i]});
+          console.log(cart);
+
+
+          Filter returns an array that has removed elements.
+
+
+          Array Magic: Reduce method
+
+          Where map method transforms each element of the array.
+          reduce transforms the entire value.
+
+          with reduce, when calling back the function. You can control the output. the first element in the callback is called an accumulator, which is what the array is being reduced to a single value.
+
+          the function being passed into reduce takes two parameters the accumulator(a) and the current array element(x)

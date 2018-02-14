@@ -1,0 +1,285 @@
+                    Objects and Object oriented Programming
+
+
+2 main differences between an array and an object
+  1. arrays contain values, indexed numerically; objects contain properties, index by string or symbol.
+  2. Arrays are orders.(arr[0] comes before arr[1]): objects dont guarantee order (obj.a might be after obj.b)
+
+  You can access the properties of an object by the key.
+  let ex1 = obj{
+    // key    :   value //
+    firstName: "frank",
+    lastName: "franklin"
+  };
+
+  Enummeration is when you list out the contents of an array or objects properties.
+
+  For...in loops
+
+  const SYM = Symbol();
+
+const o = { a: 1, b: 2, c: 3, [SYM]: 4 };
+
+for(let property in o) {
+	if(!o.hasOwnProperty(property)) continue;
+	console.log(`${property}: ${o[property]}`);
+
+}
+// Object.prototype.hasOwnProperty() method returns a boolean if you log the property key
+
+// having issues understanding why o[property] logs the numbers where property just logs the key and not the values.... Duh
+
+// Note For.. in didnt include the SYM keys
+
+// Object.keys gives us a way to get all enumerable string properties of an object as an array
+
+// Can get the keys by looping over a specific objects keys with a forEach loop
+
+Object.keys(o).forEach(property => console.log(`${property}: ${o[property]}`));
+// handy for applting filters to properties of object
+const words = { apple: 1, ballon: 2, guitar: "3", xylophone: 4, xochitl: 5};
+
+Object.keys(words)
+	.filter(property => property.match(/^g/))
+	.forEach(property => console.log(`${property}: ${words[property]}`));
+
+// In OOP.  class = a car, instance = my_car , classMethod = accelerate, method = turn on heated seats.(refers to a method that is a specific instance. not a car but my_car)
+
+// Class and Instance creation
+class Car {
+	constructor(make, model) {
+		this.make = make;
+		this.model = model;
+		this.userGears = ['P', 'N', 'R', 'D'];
+		this.userGear = this.userGears[0];
+	}
+	shift(gear) {
+		if(this.userGears.indexOf(gear) < 0)
+			throw new Error(`Invalid gear: ${gear}`);
+		this.userGear = gear;
+	}
+}
+
+const car1 = new Car();
+const car2 = new Car();
+
+console.log(car1 instanceof Car); // true
+console.log(car1 instanceof Array); // false
+
+console.log(car1);
+Object.keys(car1).forEach(prop => console.log(`${car1}: ${car1.prop}`));
+// having issues with the concept of logging what inside of the object constructor. can you even do it? Im assuming so.
+// dont think I drilled down far enough.
+// can't loop through class constructor only newly instatiaed objects such as car
+
+const car3 = new Car("Tesla", "Model S");
+const car4 = new Car("Mazda", "3i");
+car3.shift('D');
+car4.shift('R');
+
+console.log(car3); // Telsa model s, userGear: 'D'
+console.log(car4); // Mazda 3i, userGear: 'R'
+
+console.log(car3.userGear); // 'D'
+console.log(car4.userGear); // 'R'
+
+//Dynamic Properties
+// edited version that doesnt allow us to set a new value for userGear
+// ex.  car1.userGear = 'X';     not something wanted if userGear can only be set values from an array or object.
+
+class Car1 {
+	constructor(make, model) {
+		this.make = make;
+		this.model = model;
+		this._userGears = ['P', 'N', 'R', 'D'];
+		this._userGear = this._usersGears[0];
+	}
+	get userGear() { return this._userGear};
+	set usergear(value) {
+		if(this._userGears.indexOf(value) < 0)
+			throw new Error(`Invalid gear: ${value}`);
+		this._newGear = value;
+	}
+	shift(gear) { this.userGear = gear}
+}
+
+// for privacy use a weakmap and store the class object / constuctor / get / set / shift method.
+
+const Car2 = (function() {
+
+	const carProps = new WeakMap();
+
+	class Car2 {
+		constructor(make, model) {
+			this.make = make;
+			this.model = model;
+			this._userGears = ['P', 'N', 'R', 'D'];
+			carProps.set(this, { userGear: this._userGears[0] })
+		}
+
+		get userGear() { return carProps.get(this).userGear; }
+		set userGear(value) {
+			if(this._userGears.indexOf(value) < 0)
+				throw new Error(`Invalid gear: ${value}`);
+			carProps.get(this).userGear = value
+		}
+
+		shift(gear) { this.userGear = gear; }
+	}
+
+	return Car2;
+})();
+
+
+//   THE Prototype
+
+// when you refer to methods that are available on an instance of a class
+// also called dynamic dispatch using the prototype chain.
+
+//short hand prototype method had emerged as popular convention Car#shift
+
+//EVERY FUNCTION HAS A SPECIAL PROPERTY CALLED PROTOTYPE
+
+// dynamic dispatch is another phrase for method invocation.
+
+// last part of page 154 I dont understand . . if some prototypes are not active or supplyed by method or property then
+
+const car5 = new Car();
+const car6 = new Car();
+car5.shift === Car.prototype.shift; // true
+// javascript looks at the prototype for car5 and find method inherited by Car constructor.
+car5.shift('D'); // true
+//car5.shift('d'); // error : doesnt exist
+car5.userGear; // 'D'
+car5.shift === car6.shift  // true
+
+car5.shift = function(gear) { this.userGear = gear.toUpperCase(); }
+car5.shift === Car.prototype.shift;  // false
+car5.shift === car6.shift // false
+//car5.shift('d'); // throws error because its not in the class constructor property.
+car5.userGear; // 'D'
+
+
+//                      STATIC METHODS
+//   Do not apply to instance, but instead the class. Methods for a class
+// 		Also used for wirting methods to  compair properties of the consturctor function to any generated newly generated object.
+
+class CarFuck {
+	static getNextVin() {
+		return CarFuck.nextVin++;
+
+	}
+	constructor(make, model) {
+		this.make = make;
+		this.model - model;
+		this.vin = CarFuck.getNextVin();
+	}
+	static areSimilar(car5, car6) {
+		return car5.make ===car6.make && car5.model===car6.model;
+	}
+	static areSame(car5, car6) {
+		return car5.vin==car6.vin;
+	}
+}
+CarFuck.nextVin = 0;
+
+const carI = new CarFuck('Mazda', "3");
+const carI1 = new CarFuck('Mazda', '3');
+const carI2 = new CarFuck('Tesla', 'S');
+
+console.log(carI.vin); // 0
+console.log(carI1.vin); // 1
+console.log(carI2.vin); // 2
+
+console.log(CarFuck.areSimilar(carI, carI1)); // false
+console.log(CarFuck.areSimilar(carI1, carI2)); // true
+console.log(CarFuck.areSame(carI1, carI2)); // true
+
+
+// JAVASCRIPT BEING FUCKING AMAZING LOOKS AT A OBJECT PROTOTYPE IF IT CAN FIND THE VALUE ASSIGNED THEN IT WILL LOOK INTO THE PROTYPES PROTOTYPE  and if it cant find the prototype it errors out.
+
+
+// Below is an example of inharitance usng the extends keyword
+
+class Vehicle {
+	constructor() {
+		this.passangers = [];
+		console.log("When vehicle is created");
+	}
+	addPassangers(p) {
+		this.passangers.push(p);
+	}
+}
+
+class CarWithPeople extends Vehicle {
+	constructor() {
+		super();
+		console.log("when car is created");
+	}
+	deployAirbags() {
+		console.log("Deploy AIRBAGS BISHES");
+	}
+}
+
+const v = new Vehicle();
+v.addPassangers('Frank');
+v.addPassangers('Sally');
+v.passangers; // [Frank, Sally]
+const c = new CarWithPeople();
+c.addPassangers('Alice');
+c.addPassangers('Molly');
+console.log(c.passangers);
+//v.deployAirbags(); //error
+c.deployAirbags();
+
+//instanceOf operator
+
+class Motorcycle extends Vehicle {}
+const car = new CarWithPeople();
+const m = new Motorcycle();
+console.log(car instanceof CarWithPeople); // true
+console.log(car instanceof Vehicle); // true
+console.log(m instanceof Car); // false
+console.log(m instanceof Motorcycle); // true
+console.log(m instanceof Vehicle); // true
+
+// Enumerating Object Properties
+
+// create object and assign it.
+// iterate through the new object and log the object properties their value and key
+
+class InsurancePolicy {}
+	function makeInsurable(o) {
+		o.addInsurancePolicy = function(p) { this.insurancePolicy = p; }
+		o.getInsurancePolicy = function() { return this.insurancePolicy; }
+		o.isInsured = function() { return !!this.insurancePolicy; }
+
+}
+
+makeInsurable(CarFuck); // doesnt work to use the Multiple inharitancelike we would think
+
+const newCar = new Car();
+makeInsurable(newCar);
+newCar.addInsurancePolicy(new InsurancePolicy());
+
+// this works but you must call for insurance on each new car created. this can be circumvented by using mixins or multiple inharitance.
+
+makeInsurable(Car.prototype);
+const car7 = new Car();
+car7.addInsurancePolicy(new InsurancePolicy());
+
+// Mixins don't eleminate the problem of Collision. you could instead use the Smybols as the Key for the methods.
+
+class InsurancePolicyNew {}
+const ADD_POLICY = Symbol();
+const GET_POLICY = Symbol();
+const IS_INSURED = Symbole();
+function makeInsurableNew(o) {
+	o.[ADD_POLICY] = function(p) { this[_POLICY] = p; }
+	o.[GET_POLICY] = function() { return this[_POLICY]; }
+	o.[IS_INSURED] = Function() { return !!this[_POLICY]; }
+}
+
+makeInsurableNew(Car.prototype);
+const car8 = new Car();
+car8.makeInsurable(new InsurancePolicyNew());
