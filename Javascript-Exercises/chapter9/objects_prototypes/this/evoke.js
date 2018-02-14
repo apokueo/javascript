@@ -12,4 +12,6 @@ var obj = {
 let ether = obj.spirit
 
 let bindFunc = ether.bind(evocation)
-console.log(bindFunc); 
+
+bindFunc(); 
+
