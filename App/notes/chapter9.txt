@@ -12,7 +12,7 @@
     lastName: "franklin"
   };
 
-  Enummeration is when you list out the contents of an array or objects properties.
+  Enumeration is when you list out the contents of an array or objects properties.
 
   For...in loops
 
@@ -36,7 +36,7 @@ for(let property in o) {
 // Can get the keys by looping over a specific objects keys with a forEach loop
 
 Object.keys(o).forEach(property => console.log(`${property}: ${o[property]}`));
-// handy for applting filters to properties of object
+// handy for applying filters to properties of object
 const words = { apple: 1, ballon: 2, guitar: "3", xylophone: 4, xochitl: 5};
 
 Object.keys(words)
@@ -70,7 +70,7 @@ console.log(car1);
 Object.keys(car1).forEach(prop => console.log(`${car1}: ${car1.prop}`));
 // having issues with the concept of logging what inside of the object constructor. can you even do it? Im assuming so.
 // dont think I drilled down far enough.
-// can't loop through class constructor only newly instatiaed objects such as car
+// can't loop through class constructor only newly instantiated objects such as car
 
 const car3 = new Car("Tesla", "Model S");
 const car4 = new Car("Mazda", "3i");
@@ -103,7 +103,7 @@ class Car1 {
 	shift(gear) { this.userGear = gear}
 }
 
-// for privacy use a weakmap and store the class object / constuctor / get / set / shift method.
+// for privacy use a weakmap and store the class object / constructor / get / set / shift method.
 
 const Car2 = (function() {
 
@@ -142,7 +142,7 @@ const Car2 = (function() {
 
 // dynamic dispatch is another phrase for method invocation.
 
-// last part of page 154 I dont understand . . if some prototypes are not active or supplyed by method or property then
+// last part of page 154 I dont understand . . if some prototypes are not active or supplied by method or property then
 
 const car5 = new Car();
 const car6 = new Car();
@@ -162,7 +162,7 @@ car5.userGear; // 'D'
 
 //                      STATIC METHODS
 //   Do not apply to instance, but instead the class. Methods for a class
-// 		Also used for wirting methods to  compair properties of the consturctor function to any generated newly generated object.
+// 		Also used for writing methods to compare properties of the constructor function to any generated newly generated object.
 
 class CarFuck {
 	static getNextVin() {
@@ -196,10 +196,10 @@ console.log(CarFuck.areSimilar(carI1, carI2)); // true
 console.log(CarFuck.areSame(carI1, carI2)); // true
 
 
-// JAVASCRIPT BEING FUCKING AMAZING LOOKS AT A OBJECT PROTOTYPE IF IT CAN FIND THE VALUE ASSIGNED THEN IT WILL LOOK INTO THE PROTYPES PROTOTYPE  and if it cant find the prototype it errors out.
+// JAVASCRIPT BEING FUCKING AMAZING LOOKS AT A OBJECT PROTOTYPE IF IT CAN FIND THE VALUE ASSIGNED THEN IT WILL LOOK INTO THE PROTOTYPES PROTOTYPE  and if it cant find the prototype it errors out.
 
 
-// Below is an example of inharitance usng the extends keyword
+// Below is an example of inheritance using the extends keyword
 
 class Vehicle {
 	constructor() {
@@ -256,24 +256,24 @@ class InsurancePolicy {}
 
 }
 
-makeInsurable(CarFuck); // doesnt work to use the Multiple inharitancelike we would think
+makeInsurable(CarFuck); // doesnt work to use the Multiple inharitance like we would think
 
 const newCar = new Car();
 makeInsurable(newCar);
 newCar.addInsurancePolicy(new InsurancePolicy());
 
-// this works but you must call for insurance on each new car created. this can be circumvented by using mixins or multiple inharitance.
+// this works but you must call for insurance on each new car created. this can be circumvented by using mixins or multiple inheritance.
 
 makeInsurable(Car.prototype);
 const car7 = new Car();
 car7.addInsurancePolicy(new InsurancePolicy());
 
-// Mixins don't eleminate the problem of Collision. you could instead use the Smybols as the Key for the methods.
+// Mixins don't eliminate the problem of Collision. you could instead use the Symbols as the Key for the methods.
 
 class InsurancePolicyNew {}
 const ADD_POLICY = Symbol();
 const GET_POLICY = Symbol();
-const IS_INSURED = Symbole();
+const IS_INSURED = Symbol();
 function makeInsurableNew(o) {
 	o.[ADD_POLICY] = function(p) { this[_POLICY] = p; }
 	o.[GET_POLICY] = function() { return this[_POLICY]; }
