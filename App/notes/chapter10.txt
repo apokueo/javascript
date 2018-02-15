@@ -117,7 +117,7 @@
     roles.add('User');
     roles.add('Admin');
     roles.size;   // like map set also has a size property
-    // if you try and add something that already exist the legnth doesnt change.
+    // if you try and add something that already exist the length doesnt change.
 
     roles.delete('Admin'); // true
     roles; // Set [ 'User' ]

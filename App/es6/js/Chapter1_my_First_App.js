@@ -62,7 +62,7 @@ const n = 33.5;
 const s = n.toString();
 
 console.log(arry.length);
-console.log(a2);
+console.log(a2); 
 console.log(cats);
 console.log(aRayRay[0][0]);
 console.log(aRayRay[1][2]); // drilling into arrays 
