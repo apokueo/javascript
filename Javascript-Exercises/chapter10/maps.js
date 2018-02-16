@@ -15,8 +15,7 @@ userRoles
     .set(u2, 'User')
     .set(u3, 'Admin');
 
-userRoles.get(u2); // User
-
-userRoles.has(u1); // true
-userRoles.get(u1); // true
+console.log(userRoles.get(u2)); // User
+console.log(userRoles.has(u1)); // true
+console.log(userRoles.get(u1)); // true
 
