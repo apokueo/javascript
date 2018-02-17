@@ -1,0 +1,88 @@
+              Exceptions and Error Handling
+
+
+  // Error standard Object
+  const error = new Error('invalid email');
+
+  function validateEmail(email) {
+	return email.match(/@/) ?
+		email :
+		new Error(`invalid email: ${email}`);
+}
+
+
+const email = null;
+
+try{
+	const validatedEmail = validateEmail(email);
+	if(validatedEmail instanceof Error) {
+		console.log(`Error: ${validatedEmail}`);
+	} else {
+		console.log(`Valid email: ${validatedEmail}`);
+	}
+} catch(err) {
+	console.log(`Error: ${err.message}`);
+}
+
+// Throwing Errors
+// javascript allows you to throw any value and allows the code to step through. Error is commonly used
+
+function billPay(amount, payee, account) {
+	if(amount > account.balance) {
+		throw new Error("insufficient funds");
+	account.transfer(payee, amount);
+	}
+}
+
+// Exception Handling and the Call Stack
+
+
+function a() {
+	console.log('a: calling b');
+	b();
+	console.log('a: done');
+}
+function b() {
+	console.log('b: calling c');
+	c();
+	consle.log('b: done');
+}
+function c() {
+	console.log('c: throwing error');
+	throw new Error('you done fucked up');
+	console.log('c: done');
+}
+function d() {
+	console.log('d: calling c');
+	c();
+	console.log('d: done');
+}
+
+try {
+	a(); // even though im trying a its telling me c is throwing the error in the console.log
+} catch(err) {
+	console.log(err.stack);
+}
+
+try {
+	d() // console.log show you where the error occers in c and d. as d calls c function and c throws the error.
+} catch(error) {
+	console.log(error.stack);
+}
+
+//  Try.. catch.. finally
+// you may want to free resources from http requests or connections
+// finally allows you to add an ending function to apply that will always exicute
+
+try {
+	console.log('this line is exicuted');
+	throw new Error('whoops');
+	console.log('this line is not exicuted')
+} catch(err) {
+	console.log('there was an error');
+} finally {
+	console.log('...always exicuted code');
+	console.log('preform cleanup at end of code after trying to catch errors ');
+}
+
+// Final note: just producing a try error  with no catch will crash the program. Also consider the computational cost when using the try..catch because exceptions have to "unwind" the stack trace until a catch blcok is encountered.
