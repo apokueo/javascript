@@ -1,0 +1,135 @@
+  FUCK YEA>>>>>>>> ITERATORS AND GENERATORS  <<< <<<<<<<<<<<<
+
+ 1. generators depend on iterators
+
+ // Dis shit only works in ES6 Bishes, but it allows you to save your place even though you can do the same damn thin with the index durrrrrrrrr.
+const users =
+	[
+	'user1',
+	'user2',
+	'user3',
+	'user4',
+	'user5',
+	];
+
+ next we'll start de iteraton using the next()'
+ const user_Values = users.values();
+ user_Values.next(); // user1
+ users_Values.next(); // user2
+ users_Values.next(); // user3
+
+
+
+let current = users.next();
+  while(!current.done) {
+	console.log(current.value);
+	current = user_Values.next();
+}
+
+
+// Reads two entrees with same call of identifier
+user_Values1 = users.values();  // arr[0]
+user_Values1 = user.values();  // arr[1]
+
+// note that every time you create a new iterator it starts from the beginning of the array.
+
+ user_Values2 = user.values(); // index 0 of array
+
+ user_Values1 = user.values(); // arr[2]
+
+///  ITERATION PROTOCOL
+// enavles any object to iterable
+
+class Log {
+	constructor() {
+		this.message = [];
+	}
+	add(message) {
+		this.message.push({ message, timestamp: Date.now() });
+	}
+	[Symbol.iterator]() {
+		return this.message.values();
+	}
+}
+
+const log = new Log();
+log.add("file not found");
+log.add("restricted acess ");
+log.add("cant find resource");
+
+for(let entry of log) {
+	console.log(`${entry.message} @ ${entry.timestamp}`);
+}
+
+// use the spread operator to look inside object
+
+const iterable = new Object();
+
+iterable[Symbol.iterator] = function* () {
+	yield 1;
+	yield 2;
+	yield 3;
+}
+console.log(iterable); // gives you the entire object reference.
+console.log([...iterable]);
+
+// FUCK YEA FIBONACCCI SEQUENCE
+
+class FibonacciSequence {
+	[Symbol.iterator]() {
+		let a = 0, b =1;
+		return {
+			next() {
+				let rval = { value: b, done: false };
+				b += a;
+				a = rval.value;
+				return rval;
+			}
+		};
+	}
+}
+
+const fib = new FibonacciSequence();
+let i = 0;
+for(let n of fib) {
+	console.log(n);
+	if(++i > 50) break;
+}
+// we provide our our iterating loop a condition and tell it to break out of the loop otherwise it would loop indefinitly
+
+
+// 								Generators
+
+// or functions that use an iterator to control their execution
+// generators arel ike functions except they can yield control back to the caller at any  point.
+// and when you call a generator it doesnt run right away. the function runs when you call the iterators next() method.
+
+function* interrogate() {
+	const name = yield "what is your name?";
+	const color = yield "what is your favorite color?";
+	return `${name}s favorite color is ${color}.`;
+}
+
+const it = interrogate();
+console.log(it.next());
+console.log(it.next('nick'));
+console.log(it.next('blue'));
+// cannot create a generator with arrow function must be function* name(){}
+// can also return as the exit to the generator.(example below)
+
+function* abc() {
+	yield 'a';
+	yield 'b';
+	return 'c';
+}
+
+const abcS = abc();
+abcS.next();
+abcS.next();
+console.log(abcS.next());
+console.log(abcS.next().done);
+
+for(let n of abc()) { // notice this for loop doesnt log the return 'c' when iterating over it.
+	console.log(n);
+}
+// return should only really be used when stopping the generator early.

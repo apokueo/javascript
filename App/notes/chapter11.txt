@@ -45,7 +45,7 @@ function a() {
 function b() {
 	console.log('b: calling c');
 	c();
-	consle.log('b: done');
+	console.log('b: done');
 }
 function c() {
 	console.log('c: throwing error');
@@ -65,24 +65,24 @@ try {
 }
 
 try {
-	d() // console.log show you where the error occers in c and d. as d calls c function and c throws the error.
+	d() // console.log show you where the error occurs in c and d. as d calls c function and c throws the error.
 } catch(error) {
 	console.log(error.stack);
 }
 
 //  Try.. catch.. finally
 // you may want to free resources from http requests or connections
-// finally allows you to add an ending function to apply that will always exicute
+// finally allows you to add an ending function to apply that will always execute
 
 try {
-	console.log('this line is exicuted');
+	console.log('this line is executed');
 	throw new Error('whoops');
-	console.log('this line is not exicuted')
+	console.log('this line is not executed')
 } catch(err) {
 	console.log('there was an error');
 } finally {
-	console.log('...always exicuted code');
+	console.log('...always executed code');
 	console.log('preform cleanup at end of code after trying to catch errors ');
 }
 
-// Final note: just producing a try error  with no catch will crash the program. Also consider the computational cost when using the try..catch because exceptions have to "unwind" the stack trace until a catch blcok is encountered.
+// Final note: just producing a try error  with no catch will crash the program. Also consider the computational cost when using the try..catch because exceptions have to "unwind" the stack trace until a catch block is encountered.
